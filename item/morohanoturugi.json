@@ -1,0 +1,75 @@
+{
+    "ItemName": "諸刃の剣あ",
+    "ItemImgURL": "https://cdn.discordapp.com/attachments/1075749448774332447/1111945918497964064/u.png",
+    "ItemStatus": {
+        "0": {
+            "baseDmg": 1,
+            "attributes": [
+                "Dirt"
+            ]
+        },
+        "1": {
+            "baseDmg": 100,
+            "attributes": [
+                "Fire",
+                "Dirt"
+            ]
+        },
+        "2": {
+            "baseDmg": 200,
+            "attributes": [
+                "Fire",
+                "Dirt"
+            ]
+        },
+        "3": {
+            "baseDmg": 300,
+            "attributes": [
+                "Fire",
+                "Dirt",
+                "Sun"
+            ]
+        },
+        "4": {
+            "baseDmg": 400,
+            "attributes": [
+                "Fire",
+                "Dirt",
+                "Sun",
+                "Elect"
+            ]
+        }
+    },
+    "questionOne": {
+        "title": "世田谷学園は？",
+        "selFirst": "男子校",
+        "selSecond": "女子高",
+        "selThird": "共学",
+        "answer": "男子校",
+        "description": "せたががくえんですせたががくえんですせたががくえんですせたががくえんですせたががくえんです"
+    },
+    "questionTwo": {
+        "title": "1を選べ？",
+        "selFirst": "男子校",
+        "selSecond": "女子高",
+        "selThird": "共学",
+        "answer": "男子校",
+        "description": "sirane"
+    },
+    "questionThree": {
+        "title": "2を選べ",
+        "selFirst": "男子校",
+        "selSecond": "女子高",
+        "selThird": "共学",
+        "answer": "女子高",
+        "description": "sirane"
+    },
+    "questionFour": {
+        "title": "3を選べ",
+        "selFirst": "男子校",
+        "selSecond": "女子高",
+        "selThird": "共学",
+        "answer": "共学",
+        "description": "sirane"
+    }
+}

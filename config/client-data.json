@@ -1,0 +1,21 @@
+{
+  "3592": {
+    "nickName": "かのき",
+    "items": {
+      "諸刃の剣あ": {
+        "base_damage": "100",
+        "attributes": [
+          "Fire",
+          "Dirt"
+        ]
+      },
+      "ビスコ": {
+        "base_damage": "10",
+        "attributes": [
+          "Dirt",
+          "x-ray"
+        ]
+      }
+    }
+  }
+}

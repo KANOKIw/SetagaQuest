@@ -1,0 +1,93 @@
+{
+    "ItemName": null,
+    "ItemImgURL": null,
+    "ItemStatus": {
+        "0": {
+            "baseDmg": 1,
+            "attributes": [
+                "Dirt"
+            ]
+        },
+        "1": {
+            "baseDmg": 100,
+            "attributes": [
+                "Fire",
+                "Dirt"
+            ]
+        },
+        "2": {
+            "baseDmg": 200,
+            "attributes": [
+                "Fire",
+                "Dirt"
+            ]
+        },
+        "3": {
+            "baseDmg": 300,
+            "attributes": [
+                "Fire",
+                "Dirt",
+                "Sun"
+            ]
+        },
+        "4": {
+            "baseDmg": 400,
+            "attributes": [
+                "Fire",
+                "Dirt",
+                "Sun",
+                "Elect"
+            ]
+        },
+        "5": {
+            "baseDmg": 500,
+            "attributes": [
+                "Fire",
+                "Dirt",
+                "Sun",
+                "Elect",
+                "Legend"
+            ]
+        }
+    },
+    "questionOne": {
+        "title": null,
+        "selFirst": null,
+        "selSecond": null,
+        "selThird": null,
+        "answer": null,
+        "description": null
+    },
+    "questionTwo": {
+        "title": null,
+        "selFirst": null,
+        "selSecond": null,
+        "selThird": null,
+        "answer": null,
+        "description": null
+    },
+    "questionThree": {
+        "title": null,
+        "selFirst": null,
+        "selSecond": null,
+        "selThird": null,
+        "answer": null,
+        "description": null
+    },
+    "questionFour": {
+        "title": null,
+        "selFirst": null,
+        "selSecond": null,
+        "selThird": null,
+        "answer": null,
+        "description": null
+    },
+    "questionFive": {
+        "title": null,
+        "selFirst": null,
+        "selSecond": null,
+        "selThird": null,
+        "answer": null,
+        "description": null
+    }
+}
