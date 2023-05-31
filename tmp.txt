@@ -1,0 +1,9 @@
+var clientInfo = {
+    "items": {
+        "itemName": アイテムの名前,
+        アイテムの名前: {
+            "base_damage": ダメージとか,
+            "attributes": 属性とか,
+        }
+    }
+};

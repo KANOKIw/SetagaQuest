@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        【セタガクエスト】アイテムを獲得
+    </title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="claimItem.css">
+    <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"></script>
+    <script src="claimItem.js"></script>
+</head>
+
+<body>
+    <div class="topcontainer">
+        <div class="topsquare">
+            <br>
+            <div id="top">
+                <img
+                  src="https://cdn.discordapp.com/icons/1101399573991268374/a_c3ede8a7240af692d46e1d786b13dbb8.gif?size=1024"
+                  width="8%">
+                <img src="image/title.png" width="50%">
+                <div id="topTitle" style="display: inline;">アイテムを獲得</div><br>
+                <div class="longUnderLine"></div><br><br>
+            </div>
+        </div>
+    </div>
+
+    <div id="notCustomer">
+        <span style="font-size: 200%;">
+            <br>
+            <div id="notCTM">
+                よく見つけましたね!<br>
+                セタガクエストはあなたのような人材を必要としています<br>
+                4Fの教室にきて手を貸してください!
+            </div>
+        </span>
+    </div>
+
+    <div id="claimed-item">
+        <span style="font-size: 200%;">
+            <br>
+            <div id="claimed-item-description">
+                <div id="claimed-item-description-sub">
+                    既にこのアイテムを獲得しています
+                </div>
+                <br>
+                ほかのQRコードをさがしてください!
+            </div>
+        </span>
+    </div>
+
+    <div id="badRequest">
+        <span style="font-size: 500%;">
+            <br>
+            400 Bad Request
+        </span>
+        <p>(inccorect Parameter)</p>
+    </div>
+
+    <div id="whole">
+        <div id="registerNickname">
+            <br>
+            <br>
+            <div id="inputThings">
+                <form id="nicknameForm">
+                    <div id="firstFind">ようこそセタガクエストへ！<br>後ほど使うニックネームを決めてください！</div><br>
+                    <div id="firstfindDes"></div>
+                    <span id="nicked">
+                        <div id="caution"></div>
+                        <span><input type="text" id="inputNicknameZone" name="nickname" style="padding-left: 10px" size="30" placeholder="ニックネームを入力"></span><br><br>
+                        
+                        <div id="submitNickname">
+                            <button type="button">決定</a>
+                        </div>
+                    </span>
+                </form>
+            </div>
+        </div>
+
+        <div id="quiz">
+            <br><br>
+            <div id="quizItemBorder">
+                <img src="image\title.png" id="quizImg" alt="quizImg" width="9%">
+            
+                <div id="quizItem" style="display: inline;"></div><div style="display: inline;font-size: 300%;">を獲得しよう</div>
+            </div>
+            <br>
+            <br>
+            <div id="quizDescription">
+                ※下のクイズでの正解数に応じて貰えるアイテムのステータスが変わります<br>
+            </div><br>
+            <div class="container">
+            <div class="square">
+                <div id="Quiz">
+                    <span>
+                        <div id="questionCount"></div>
+                    </span>
+                    <span>
+                        <div id="questionTitle">
+                        
+                        </div>
+                        <br>
+                        <div class="selection">
+                            <input id="selectOne" type="radio" name="answer">
+                            <label for="selectOne" id="selectionOne"></label>
+                        </div>
+                        <div class="selection">
+                            <input id="selectTwo" type="radio" name="answer"> 
+                            <label for="selectTwo" id="selectionTwo"></label>                       
+                        </div>
+                        <div class="selection">
+                            <input id="selectThree" type="radio" name="answer">
+                            <label for="selectThree" id="selectionThree"></label>
+                        </div>
+                        <br>
+                        <br>
+                        <span id="answerSpan">
+                            <button id="answerButton" class="answerBtn">回答する</button>
+                        </span>
+                        <br>
+                        <div id="judge">
+
+                        </div>
+                        <div id="Des">
+                            解説: 
+                        </div>
+                        <div id="questionDescription"></div>
+                    </div>
+                    <br>
+                    <div class="showResult">
+                        <div id="correctCNT" class="resultCNT"></div>
+                        <div id="wrongCNT" class="resultCNT"></div>
+                        <br>
+                        <br>
+                        <div id="resultItemImgSpan">
+                            <img src="image/title.png" alt="ItemImg" id="resultItemImg">
+                        </div>
+                        <div id="claimedItem"></div>
+                        <div id="claimed-Item-Des"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

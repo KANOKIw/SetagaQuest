@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="villager.css">
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha384-rY/jv8mMhqDabXSo+UCggqKtdmBfd3qC2/KvyTDNQ6PcUJXaxK1tMepoQda4g5vB"
+  crossorigin="anonymous"></script>
+
+  <script src="villager.js"></script>
+
+<head>
+  <title>【セタガクエスト】会話</title>
+</head>
+
+<body>
+  <div class="topcontainer">
+    <div class="topsquare">
+        <br>
+        <div id="top">
+            <img
+            src="https://cdn.discordapp.com/icons/1101399573991268374/a_c3ede8a7240af692d46e1d786b13dbb8.gif?size=1024"
+            width="8%">
+            <img src="image/title.png" width="50%">
+            <div id="topTitle" style="display: inline;">村人からのヒント</div><br>
+            <div class="longUnderLine"></div><br><br>
+        </div>
+    </div>
+  </div>
+
+  <div id="badRequest">
+    <span style="font-size: 500%;">
+        <br>400 Bad Request
+    </span>
+    <p>(inccorect Parameter)</p>
+  </div>
+
+  <div id="claimed-item">
+    <span style="font-size: 200%;">
+        <br>
+        <div id="claimed-item-description">
+            <div id="claimed-item-description-sub">
+                既にこのアイテムを獲得しています
+            </div>
+            <br>
+            ほかのQRコードをさがしてください!
+        </div>
+    </span>
+  </div>
+
+  <div id="notCustomer">
+    <span style="font-size: 200%;">
+        <br>
+        <div id="notCTM">
+            よく見つけましたね!<br>
+            セタガクエストはあなたのような人材を必要としています<br>
+            4Fの教室にきて手を貸してください!
+        </div>
+    </span>
+  </div>
+
+  <div id="main">
+    <div style="text-align: right;">
+      <img src="image/dummy_villager_jikun.png" style="width: 45%;margin-top: 22px;">
+    </div>
+    <div class="arrow_box" onclick="talking_change()">
+       <div id="serihu">
+       </div>
+     </div>
+  </div>
+
+</body>
