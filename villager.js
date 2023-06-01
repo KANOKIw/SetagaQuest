@@ -8,6 +8,23 @@ var clientID = localStorage.getItem("SetagaQuestClientID")
 
 
 $(function(){
+    // お客さんのブラウザがローカルストレージ使用可能か/不可の場合IPアドレスで保存
+    if (typeof localStorage !== 'undefined') {
+        try {
+            localStorage.setItem('dummy', '1');
+            if (localStorage.getItem('dummy') === '1') {
+                localStorage.removeItem('dummy');
+                // 使用可能(これより下は使用不可)
+            } else {
+                clientID = "IP";
+            }
+        } catch(e) {
+            clientID = "IP";
+        }
+    } else {
+        clientID = "IP";
+    }
+
     console.log(clientID)
     if (clientID === null){
         $("#notCustomer").show();

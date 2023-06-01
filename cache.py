@@ -1,4 +1,4 @@
-import json, random, sys, os
+import json, random, sys, os, time
 
 with open("./config/client-data.json", encoding="utf-8") as f:
     data = json.load(f)
@@ -6,7 +6,7 @@ with open("./config/client-data.json", encoding="utf-8") as f:
 tried = 0
 while True:
     try:
-        with open(f"./.cache/client-data-{tried}.json"):
+        with open(f"./client-data-cache/client-data-{tried}.json"):
             pass
         tried += 1
     except FileNotFoundError:

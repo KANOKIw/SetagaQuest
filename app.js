@@ -51,6 +51,9 @@ app.post("/data", function(req, res) {
         };
 
         var clientID = req.body["clientID"]
+        if (clientID === "IP"){
+            clientID = clientIP
+        }
 
         allData[clientID] = {
             "nickName": req.body["x"]
@@ -107,6 +110,10 @@ app.post("/init", function(req, res) {
     var postData = req.body;
 
     var clientID = postData["clientID"];
+    if (clientID === "IP"){
+        clientID = clientIP
+    }
+
     var url_id = postData["url_id"];
     var itemInfo = ItemID[url_id];
     
@@ -163,7 +170,7 @@ app.post("/clientData", function(req, res) {
 
 
 app.post("/newClientID", function(req, res) {
-    var newID = Math.floor(Math.random() * (9999 - 1000)) + 1000;
+    var newID = Math.floor(Math.random() * (99999 - 1000)) + 1000;
     console.log("Generating New ID");
 
     try {

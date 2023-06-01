@@ -2,16 +2,23 @@ let btn_intr = 0;
 var correct = 0;
 var wrong = 0;
 var lastQuestion = 0;
-var nickName = void(0)
-const url_id = String(getParam("id"))
-var itemInfo
-var clientID = localStorage.getItem("SetagaQuestClientID")
+var nickName = void(0);
+
+//外部からのnickNameアクセスを禁止
+var url_id = String(getParam("id"));
+const nickName_URL_ID = "wawawa"  //毎回予測されない文字列にする & ホワイトリスト用のQRコードを随時変更
+if (url_id === "nickName"){
+    url_id = "badRequest";
+} else if (url_id === nickName_URL_ID){
+    url_id = "nickName";
+} 
+
+var itemInfo;
+var clientID = localStorage.getItem("SetagaQuestClientID");
 
 
 function sleep(waitMsec) {
     var startMsec = new Date();
-   
-    // 指定ミリ秒間だけループさせる（CPUは常にビジー状態）
     while (new Date() - startMsec < waitMsec);
 }
 
@@ -44,15 +51,46 @@ function cleandoc(text) {
 
 $(function (){
     console.log(clientID)
+    // 開発用(そのうち消す)
+    if (url_id === "reset"){
+        if (clientID === null){
+            $("#badRequest").show();
+            $("#topTitle").text("Bad Request");
+            return;
+        } else {
+            localStorage.removeItem("SetagaQuestClientID")
+            console.log(localStorage.getItem("SetagaQuestClientID"))
+            return;
+        }
+    }
+
+    // お客さんのブラウザがローカルストレージ使用可能か/不可の場合IPアドレスで保存
+    if (typeof localStorage !== 'undefined') {
+        try {
+            localStorage.setItem('dummy', '1');
+            if (localStorage.getItem('dummy') === '1') {
+                localStorage.removeItem('dummy');
+                // 使用可能(これより下は使用不可)
+            } else {
+                clientID = "IP";
+            }
+        } catch(e) {
+            clientID = "IP";
+        }
+    } else {
+        clientID = "IP";
+    }
+
     if (clientID === null){
         if (String(url_id) === "nickName"){
             $.post("/newClientID", null).done(newID => {
-                localStorage.setItem("SetagaQuestClientID", newID)
-                $("#whole").show()
-                $("#quiz").hide()
-                $("#registerNickname").show()
-                $("#nicked").show()
-                $("#submitNickname").click(x => clientNicked())
+                localStorage.setItem("SetagaQuestClientID", newID);
+                clientID = newID
+                $("#whole").show();
+                $("#quiz").hide();
+                $("#registerNickname").show();
+                $("#nicked").show();
+                $("#submitNickname").click(x => clientNicked());
                 return;
             })
         } else {
