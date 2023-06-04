@@ -6,7 +6,7 @@ var nickName = void(0);
 
 //外部からのnickNameアクセスを禁止
 var url_id = String(getParam("id"));
-const nickName_URL_ID = "wawawa"  //毎回予測されない文字列にする & ホワイトリスト用のQRコードを随時変更
+const nickName_URL_ID = "wawawa";  //毎回予測されない文字列にする & ホワイトリスト用のQRコードを随時変更
 if (url_id === "nickName"){
     url_id = "badRequest";
 } else if (url_id === nickName_URL_ID){
@@ -34,6 +34,30 @@ function getParam(name, url) {
 }
 
 
+function setCorrectCls(w){
+    var selOne = document.getElementById("selectionOne")
+    var selTwo = document.getElementById("selectionTwo")
+    var selThree = document.getElementById("selectionThree")
+    if (selOne.textContent.slice(2) === w){
+        $("#selectionOne").addClass("correct");
+        $("#selectionOne").text(selOne.textContent + "...(正解)");
+    } else if(selTwo.textContent.slice(2) === w){
+        $("#selectionTwo").addClass("correct");
+        $("#selectionTwo").text(selTwo.textContent + "...(正解)");
+    } else {
+        $("#selectionThree").addClass("correct");
+        $("#selectionThree").text(selThree.textContent + "...(正解)");
+    }
+}
+
+
+function removeCorrectCls(){
+    $("#selectionOne").removeClass("correct")
+    $("#selectionTwo").removeClass("correct")
+    $("#selectionThree").removeClass("correct")
+}
+
+
 function cleandoc(text) {
     const lines = text.split('\n').map(line => line.trim());
   
@@ -50,7 +74,8 @@ function cleandoc(text) {
 
 
 $(function (){
-    console.log(clientID)
+    console.log("SetagaQuest.ClientID: " + clientID)
+    $(".correctImg").hide()
     // 開発用(そのうち消す)
     if (url_id === "reset"){
         if (clientID === null){
@@ -103,7 +128,19 @@ $(function (){
             "url_id": url_id,
             "clientID": clientID
         }
-        console.log(clientID)
+        console.log("SetagaQuest.ClientID: " + clientID)
+        
+        var p = {
+            "clientID": clientID
+        }
+        $.post("/getNick", p).done(res => {
+            if (!(res === null)){
+                $("#hello").text(res + "さん、こんにちは!")
+            } else {
+                $("#hello").hide()
+                console.log("a")
+            }
+        })
 
         $.post("/init", postData).done(res => {
             if(res === "not customer"){
@@ -114,6 +151,7 @@ $(function (){
                 var _alrHavingItemName = res.replace("claimed item", "")
                 $("#claimed-item").show();
                 $("#claimed-item-description-sub").text("既にこのアイテムを獲得しています(" + _alrHavingItemName + ")")
+                $("#goToOtherURL-claimedItem").show();
                 return;
 
             } else if(res === "incorrect ID"){
@@ -122,26 +160,29 @@ $(function (){
                 return;
 
             } else if(res === "not nicked yet"){
-                $("#whole").show()
-                $("#quiz").hide()
-                $("#registerNickname").show()
-                $("#nicked").show()
-                $("#submitNickname").click(x => clientNicked())
+                $("#whole").show();
+                $("#quiz").hide();
+                $("#registerNickname").show();
+                $("#nicked").show();
+                $("#topTitle").text("ニックネーム");
+                $("#submitNickname").click(x => clientNicked());
                 return;
 
             } else if(res === "already nicked"){
-                $("#whole").show()
-                $("#quiz").hide()
-                $("#firstFind").text("既にニックネームが登録されています")
-                $("#firstfindDes").text("引き続きセタガクエストをお楽しみください")
+                $("#whole").show();
+                $("#quiz").hide();
+                $("#topTitle").text("ニックネーム");
+                $("#firstFind").text("既にニックネームが登録されています");
+                $("#firstfindDes").text("引き続きセタガクエストをお楽しみください");
+                $("#goToOtherURL-nick").show();
                 return;
             } else{
                 itemInfo = res
-                $("#whole").show()
+                $("#whole").show();
 
                 $("#answerButton").click(function() {
                     checkAnswer(itemInfo);
-                });
+                })
 
                 $(".showResult").hide();
 
@@ -179,10 +220,11 @@ function clientNicked(){
         "clientID": clientID
     }
 
-    $.post("/data", info)
-    $("#nicked").hide()
-    $("#firstFind").text("ニックネームを登録しました!!")
-    $("#firstfindDes").text("セタガクエストをお楽しみください")
+    $.post("/data", info);
+    $("#nicked").hide();
+    $("#firstFind").text("ニックネームを登録しました!!");
+    $("#firstfindDes").text("セタガクエストをお楽しみください");
+    $("#goToOtherURL-nick").show();
 }
 
 
@@ -190,7 +232,7 @@ function checkAnswer(quizinfo){
     var answer_sel = document.querySelector("input[name='answer']:checked");
     if (answer_sel === null){
         return;
-    };
+    }
 
     let answer = document.querySelector(`label[for='${answer_sel.id}']`);
     var ans_btn = document.getElementById("answerButton");
@@ -208,9 +250,9 @@ function checkAnswer(quizinfo){
                     "attributes": status["attributes"],
                 }
             }
-        };
+        }
 
-        $.post("/data", clientInfo)
+        $.post("/data", clientInfo);
 
         $("#Quiz").hide();
         $(".showResult").show();
@@ -241,6 +283,7 @@ function checkAnswer(quizinfo){
 
                 var itemStatus = "基礎攻撃力: " + _itemStatusDict["baseDmg"] + ", \n属性: " + itemAttributes;
                 $("#claimed-Item-Des").text(cleandoc(itemStatus));
+                $("#goToOtherURL").show();
             }, 3200);
             if (void(nickName) === undefined){
                 resultShown += 1;
@@ -251,6 +294,7 @@ function checkAnswer(quizinfo){
 
 
     if (btn_intr === 0){
+        setCorrectCls(quizinfo["questionOne"]["answer"]);
         $("#Des").show();
         $("#questionDescription").text(quizinfo["questionOne"]["description"]);
         if (answer === quizinfo["questionOne"]["answer"]){
@@ -260,6 +304,7 @@ function checkAnswer(quizinfo){
             $("#judge").text("不正解...");
             wrong += 1;
         };
+        
         btn_intr += 1;
         lastQuestion += 1;
         if (!(lastQuestion === numOfQuestion)){
@@ -269,6 +314,8 @@ function checkAnswer(quizinfo){
         };
 
     } else if (btn_intr === 1){
+        removeCorrectCls();
+        $(".correctImg").hide();
         ans_btn.textContent = "回答する";
         $("#Des").hide();
         $("#judge").hide();
@@ -282,6 +329,7 @@ function checkAnswer(quizinfo){
         btn_intr += 1;
 
     } else if (btn_intr === 2){
+        setCorrectCls(quizinfo["questionTwo"]["answer"]);
         $("#Des").show();
         $("#judge").show();
         $("#questionDescription").show();
@@ -302,6 +350,8 @@ function checkAnswer(quizinfo){
         };
 
     } else if (btn_intr === 3){
+        removeCorrectCls();
+        $(".correctImg").hide();
         ans_btn.textContent = "回答する";
         $("#Des").hide();
         $("#judge").hide();
@@ -315,6 +365,7 @@ function checkAnswer(quizinfo){
         btn_intr += 1;
 
     } else if (btn_intr === 4){
+        setCorrectCls(quizinfo["questionThree"]["answer"])
         $("#Des").show();
         $("#judge").show();
         $("#questionDescription").show();
@@ -336,6 +387,8 @@ function checkAnswer(quizinfo){
         };
 
     } else if (btn_intr === 5){
+        removeCorrectCls();
+        $(".correctImg").hide();
         ans_btn.textContent = "回答する";
         $("#Des").hide();
         $("#judge").hide();
@@ -349,6 +402,7 @@ function checkAnswer(quizinfo){
         btn_intr += 1;
 
     } else if (btn_intr === 6){
+        setCorrectCls(quizinfo["questionFour"]["answer"]);
         $("#Des").show();
         $("#judge").show();
         $("#questionDescription").show();
@@ -370,6 +424,8 @@ function checkAnswer(quizinfo){
         };
 
     } else if (btn_intr === 6){
+        removeCorrectCls();
+        $(".correctImg").hide();
         ans_btn.textContent = "回答する";
         $("#Des").hide();
         $("#judge").hide();
@@ -383,6 +439,7 @@ function checkAnswer(quizinfo){
         btn_intr += 1;
 
     } else if (btn_intr === 7){
+        setCorrectCls(quizinfo["questionFive"]["answer"]);
         $("#Des").show();
         $("#judge").show();
         $("#questionDescription").show();

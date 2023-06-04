@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 
 var app = express();
 app.use(express.static('./'));
+var datetime = new Date();
 
 const fs = require("fs");
 const { stringify } = require('querystring');
@@ -15,7 +16,7 @@ app.use(bodyParser.json());
 
 var port = 25565;
 app.listen(port,function(){
-	console.log("Express Server is online mode:%s",port,app.settings.env);
+	console.log(datetimeNow() +" Express Server is online mode:%s",port,app.settings.env);
 });
 
 
@@ -37,15 +38,41 @@ const ItemID = {
     "6800": __porizyuusu__,
     "33402": __villagerHint_1,
     "35749": __villagerHint_2
-};
+}
 
+function datetimeNow(){
+    var datetime = new Date()
+    var year = datetime.getFullYear()
+    var month = datetime.getMonth()
+    var date = datetime.getDate();
+    var hour = datetime.getHours();
+    var minute = datetime.getMinutes();
+    var second = datetime.getSeconds();
+    if (month < 10){
+        month = "0" + month
+    }
+    if (date < 10){
+        date = "0" + date
+    }
+    if (hour < 10){
+        hour = "0" + hour
+    }
+    if (minute < 10){
+        minute = "0" + minute
+    }
+    if (second < 10){
+        second = "0" + second
+    }
+    
+    return "[" + year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second + "]"
+}
 
 app.post("/data", function(req, res) {
     var clientIP = getIP(req);
 
     if (!(req.body["x"] === void(0))){
         try{
-            var allData = JSON.parse(fs.readFileSync("./config/client-data.json", "utf8"));
+            var allData = JSON.parse(fs.readFileSync("./clientData/client-data.json", "utf8"));
         } catch(e){
             var allData = {};
         };
@@ -59,8 +86,9 @@ app.post("/data", function(req, res) {
             "nickName": req.body["x"]
         };
 
+        console.log(Object.keys(allData).length + " users ever nicked")
         allData = JSON.stringify(allData, null, 2);
-        fs.writeFileSync("./config/client-data.json", allData);
+        fs.writeFileSync("./clientData/client-data.json", allData);
         return;
     }
 
@@ -71,7 +99,7 @@ app.post("/data", function(req, res) {
     delete clientData["items"]["itemName"];
 
     try {
-        var allClientData = JSON.parse(fs.readFileSync("./config/client-data.json", "utf8"));
+        var allClientData = JSON.parse(fs.readFileSync("./clientData/client-data.json", "utf8"));
         if (Object.keys(allClientData).includes(clientID)){
             if (allClientData[clientID]["items"] === undefined){
                 clientItems = {};
@@ -99,7 +127,7 @@ app.post("/data", function(req, res) {
     };
     
     allClientData = JSON.stringify(allClientData, null, 2);
-    fs.writeFileSync("./config/client-data.json", allClientData);
+    fs.writeFileSync("./clientData/client-data.json", allClientData);
 
     res.send("claimed item on file");
 })
@@ -116,11 +144,12 @@ app.post("/init", function(req, res) {
 
     var url_id = postData["url_id"];
     var itemInfo = ItemID[url_id];
-    
-    console.log(clientIP + ": accessed");
+
+
+    console.log(datetimeNow() + " " + clientIP + " accessed: " + url_id);
 
     try {
-        var allData = JSON.parse(fs.readFileSync("./config/client-data.json", "utf8"));
+        var allData = JSON.parse(fs.readFileSync("./clientData/client-data.json", "utf8"));
     } catch(e){
         var allData = {};
     }
@@ -162,19 +191,33 @@ app.post("/init", function(req, res) {
 
 
 app.post("/clientData", function(req, res) {
-    var clientIP = getIP(req);
-    var _data = JSON.parse(fs.readFileSync("./config/client-data.json", "utf8"));
-    var _resdata = _data[clientIP];
+    var clientID = req.body["clientID"]
+    var _data = JSON.parse(fs.readFileSync("./clientData/client-data.json", "utf8"));
+    var _resdata = _data[clientID];
+    res.send(_resdata);
+})
+
+
+app.post("/getNick", function(req, res) {
+    var clientID = req.body["clientID"]
+    try{
+        var _data = JSON.parse(fs.readFileSync("./clientData/client-data.json", "utf8"));
+        var _resdata = _data[clientID]["nickName"];
+    } catch(e){
+        res.send(null);
+        return;
+    }
     res.send(_resdata);
 })
 
 
 app.post("/newClientID", function(req, res) {
-    var newID = Math.floor(Math.random() * (99999 - 1000)) + 1000;
-    console.log("Generating New ID");
+    var newID = Math.floor(Math.random() * (9999999 - 1000)) + 1000;
+    var clientIP = getIP(req);
+    console.log(clientIP + ": Generating New ID");
 
     try {
-        var allClientData = JSON.parse(fs.readFileSync("./config/client-data.json", "utf8"));
+        var allClientData = JSON.parse(fs.readFileSync("./clientData/client-data.json", "utf8"));
     } catch(e){
         res.send(String(newID));
         return;

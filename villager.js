@@ -1,10 +1,10 @@
 let url_id = String(getParam("id"));
-let talking_about = void(0)
-let change_talking_count = 1
-var itemData = void(0)
+let talking_about = void(0);
+let change_talking_count = 1;
+var itemData = void(0);
 
 //追加///////////////
-var clientID = localStorage.getItem("SetagaQuestClientID")
+var clientID = localStorage.getItem("SetagaQuestClientID");
 
 
 $(function(){
@@ -30,6 +30,17 @@ $(function(){
         $("#notCustomer").show();
             return;
     } else {
+        var p = {
+            "clientID": clientID
+        }
+        $.post("/getNick", p).done(res => {
+            if (!(res === null)){
+                $("#hello").text(res + "さん、こんにちは!")
+            } else {
+                $("#hello").hide()
+            }
+        })
+
         var postData = {
             "type": "Quiz",
             "url_id": url_id,
@@ -67,13 +78,13 @@ $(function(){
                             "attributes": status["attributes"],
                         }
                     }
-                };
-                $.post("/data", clientInfo);
+                }
+                /*会話ではアイテムもらわない
+                $.post("/data", clientInfo);*/
             }
         })
     }
 })
-/////////////
 
 
 function talking_change(){
@@ -84,86 +95,6 @@ function talking_change(){
         return;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

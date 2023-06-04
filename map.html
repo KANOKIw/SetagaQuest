@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="map.css">
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha384-rY/jv8mMhqDabXSo+UCggqKtdmBfd3qC2/KvyTDNQ6PcUJXaxK1tMepoQda4g5vB"
+  crossorigin="anonymous"></script>
+
+  <script src="map.js"></script>
+  <script src=""></script>
+
+
+<head>
+  <title>【セタガクエスト】マップ</title></head>
+<body>
+    <div class="topcontainer">
+        <div class="topsquare">
+            <br>
+            <div id="top">
+                <img
+                src="https://cdn.discordapp.com/icons/1101399573991268374/a_c3ede8a7240af692d46e1d786b13dbb8.gif?size=1024"
+                width="8%">
+                <img src="image/title.png" width="50%">
+                <div id="topTitle" style="display: inline;">校内マップ</div><br>
+                <div class="longUnderLine"></div><br><br>
+            </div>
+        </div>
+    </div>
+
+    <div id="notCustomer">
+        <span style="font-size: 200%;">
+            <br>
+            <div id="notCTM">
+                おかえりなさい！<br>
+                残念ながらセタガクエストに参加していないと地図を見ることはできません<br>
+                4Fの教室にきて手を貸してください！
+            </div>
+        </span>
+    </div>
+    <div id="helloDiv" style="display:hide;">
+        <br>
+        <h2 id="hello"></h2>
+    </div>
+
+    <div id="map_layer">
+        <input type="radio" name="tab_name" id="tab_1" checked>
+        <label class="tab_class" for="tab_1">2F</label>
+            <div class="content_class">
+                <p class="map_setumei">2階マップを表示中</p>
+            <div class="relative">
+                <img src="image/map_2f_test.png" class="mainmap"; id="map_2f_main">
+                <!-- 以下にチェックマーク 普通にやり方頭悪いわこれ-->
+                <img src="image/medal_gomi.png" class="absolute map_2f_1" id="map_2f_1_D" style="display: none;">
+                <img src="image/medal_bronze.png" class="absolute map_2f_1" id="map_2f_1_C" style="display: none;">
+                <img src="image/medal_silver.png" class="absolute map_2f_1" id="map_2f_1_B" style="display: none;">
+                <img src="image/medal_gold.png" class="absolute map_2f_1" id="map_2f_1_A" style="display: none;">
+            </div>    
+            </div>
+        <input type="radio" name="tab_name" id="tab_2" checked>
+        <label class="tab_class" for="tab_2">3F</label>
+            <div class="content_class">
+                <p class="map_setumei">3階マップを表示中</p>
+            <div class="relative">
+                <img src="image/map_2f_test.png" class="mainmap"; id="map_3f_main">
+                <!-- 以下にチェックマーク -->
+                <img src="image/medal_gomi.png" class="absolute map_3f_1" id="map_3f_1_D" style="display: none;">
+                <img src="image/medal_bronze.png" class="absolute map_3f_1" id="map_3f_1_C" style="display: none;">
+                <img src="image/medal_silver.png" class="absolute map_3f_1" id="map_3f_1_B" style="display: none;">
+                <img src="image/medal_gold.png" class="absolute map_3f_1" id="map_3f_1_A" style="display: none;">
+            </div>    
+            </div>
+        <input type="radio" name="tab_name" id="tab_3" checked>
+        <label class="tab_class" for="tab_3">4F</label>
+            <div class="content_class">
+                <p class="map_setumei">4階マップを表示中</p>
+            <div class="relative">
+                <img src="image/map_2f_test.png" class="mainmap"; id="map_4f_main">
+                <!-- 以下にチェックマーク -->
+                <img src="image/medal_gomi.png" class="absolute map_4f_1" id="map_4f_1_D" style="display: none;">
+                <img src="image/medal_bronze.png" class="absolute map_4f_1" id="map_4f_1_C" style="display: none;">
+                <img src="image/medal_silver.png" class="absolute map_4f_1" id="map_4f_1_B" style="display: none;">
+                <img src="image/medal_gold.png" class="absolute map_4f_1" id="map_4f_1_A" style="display: none;">
+            </div>    
+            </div>
+    </div>
+</body>
+</html>

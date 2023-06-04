@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 
 <head>
     <title>
@@ -49,7 +49,24 @@
                 </div>
                 <br>
                 ほかのQRコードをさがしてください!
-            </div>
+                <br><br>
+                <span id="font-g">
+                    <table id="goToOtherURL-claimedItem">
+                        <tr>
+                            <td>
+                                <div id="goToURL">
+                                    <a href="http://157.65.85.250:25565/map.html">マップを確認する</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div id="goToURL">
+                                    <a href="http://157.65.85.250:25565/map.html">マップを確認する</a>
+                                </div>  
+                            </td>
+                        </tr>
+                    </table>
+                </span> 
+            </div> 
         </span>
     </div>
 
@@ -74,15 +91,31 @@
                         <span><input type="text" id="inputNicknameZone" name="nickname" style="padding-left: 10px" size="30" placeholder="ニックネームを入力"></span><br><br>
                         
                         <div id="submitNickname">
-                            <button type="button">決定</a>
+                            <button type="button">決定</button>
                         </div>
                     </span>
                 </form>
+                <br>
+                <table id="goToOtherURL-nick">
+                    <tr>
+                        <td>
+                            <div id="goToURL">
+                                <a href="http://157.65.85.250:25565/map.html">マップを確認する</a>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="goToURL">
+                                <a href="http://157.65.85.250:25565/map.html">マップを確認する</a>
+                            </div>  
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
 
         <div id="quiz">
-            <br><br>
+            <br>
+            <h2 id="hello"></h2>
             <div id="quizItemBorder">
                 <img src="image\undefined.png" id="quizImg" alt="quizImg" width="9%">
             
@@ -108,9 +141,9 @@
                             <input id="selectOne" type="radio" name="answer">
                             <label for="selectOne" id="selectionOne"></label>
                         </div>
-                        <div class="selection">
-                            <input id="selectTwo" type="radio" name="answer"> 
-                            <label for="selectTwo" id="selectionTwo"></label>                       
+                        <div class="selection"> 
+                            <input id="selectTwo" type="radio" name="answer">
+                            <label for="selectTwo" id="selectionTwo"></label>            
                         </div>
                         <div class="selection">
                             <input id="selectThree" type="radio" name="answer">
@@ -119,7 +152,11 @@
                         <br>
                         <br>
                         <span id="answerSpan">
-                            <button id="answerButton" class="answerBtn">回答する</button>
+                            <div class="answerBtn">
+                                <button id="answerButton" type="button">
+                                    回答する
+                                </button>
+                            </div>
                         </span>
                         <br>
                         <div id="judge">
@@ -141,6 +178,21 @@
                         </div>
                         <div id="claimedItem"></div>
                         <div id="claimed-Item-Des"></div>
+                        <br>
+                        <table id="goToOtherURL">
+                            <tr>
+                                <td>
+                                    <div id="goToURL">
+                                        <a href="http://157.65.85.250:25565/map.html">マップを確認する</a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="goToURL">
+                                        <a href="http://157.65.85.250:25565/map.html">マップを確認する</a>
+                                    </div>  
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>

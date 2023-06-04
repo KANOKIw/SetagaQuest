@@ -1,0 +1,64 @@
+{
+  "64376": {
+    "nickName": "かのき"
+  },
+  "76256": {
+    "nickName": "#####",
+    "items": {
+      "ポリジュース薬": {
+        "base_damage": "200",
+        "attributes": [
+          "Fire",
+          "Dirt"
+        ]
+      }
+    }
+  },
+  "79090": {
+    "nickName": "gamigamiru"
+  },
+  "80053": {
+    "nickName": "G"
+  },
+  "2939506": {
+    "nickName": "w",
+    "items": {
+      "諸刃の剣あ": {
+        "base_damage": "100",
+        "attributes": [
+          "Fire",
+          "Dirt"
+        ]
+      }
+    }
+  },
+  "3779078": {
+    "nickName": "w"
+  },
+  "3878141": {
+    "nickName": "a"
+  },
+  "8999688": {
+    "nickName": "wa"
+  },
+  "9273828": {
+    "nickName": "wa",
+    "items": {
+      "ポリジュース薬": {
+        "base_damage": "300",
+        "attributes": [
+          "Fire",
+          "Dirt",
+          "Sun"
+        ]
+      },
+      "諸刃の剣": {
+        "base_damage": "33100",
+        "attributes": [
+          "Fire",
+          "Dirt"
+        ]
+      }
+    }
+  }
+}

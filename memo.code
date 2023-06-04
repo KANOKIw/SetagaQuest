@@ -1,0 +1,10 @@
+var clientItemList = Object.keys(clientdata["items"])
+var key_item
+var clientScore = 0
+console.log(clientItemList.length)
+for (let i = 0; i < clientItemList.length; i++){
+    key_item = clientItemList[i]
+    console.log(key_item)
+    clientScore += Number.parseInt(clientdata["items"][key_item]["base_damage"])
+}
+console.log(clientScore)
