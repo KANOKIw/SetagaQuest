@@ -1,4 +1,4 @@
-@-webkit-keyframes cardEnter {
+/*@-webkit-keyframes cardEnter {
     0%, 20%, 40%, 60%, 80%, 100% {
       transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     }
@@ -49,14 +49,16 @@
       opacity: 1;
       transform: scale3d(1, 1, 1);
     }
-  }
+  } */
   
   
+  
+
   .radio {
-    display: inline-block;
-    padding-right: 20px;
+    display: block;
+    padding-bottom: 10px;
     font-size: 18px;
-    line-height: 49px;
+    line-height: 24px;
     cursor: pointer;
   }
   .radio:hover .inner {
@@ -84,8 +86,8 @@
     height: 20px;
     width: 20px;
     display: block;
-    float: left;
-    margin: 10px 9px 10px 10px;
+    float: none;
+    margin: 10px 0;
     border: 3px solid #0c70b4;
     border-radius: 50%;
     background-color: #fff;

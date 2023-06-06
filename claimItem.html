@@ -36,6 +36,7 @@
                 よく見つけましたね!<br>
                 セタガクエストはあなたのような人材を必要としています<br>
                 4Fの教室にきて手を貸してください!
+                <h3 id="countDownNCM">読み込み中...</h3>
             </div>
         </span>
     </div>
@@ -49,7 +50,7 @@
                 </div>
                 <br>
                 ほかのQRコードをさがしてください!
-                <br><br>
+                <h3 id="countDownAlrClm">読み込み中...</h3>
                 <span id="font-g">
                     <table id="goToOtherURL-claimedItem">
                         <tr>
@@ -60,7 +61,7 @@
                             </td>
                             <td>
                                 <div id="goToURL">
-                                    <a href="http://157.65.85.250:25565/map.html">マップを確認する</a>
+                                    <a href="http://157.65.85.250:25565/showItems.html">アイテムを確認する</a>
                                 </div>  
                             </td>
                         </tr>
@@ -105,7 +106,7 @@
                         </td>
                         <td>
                             <div id="goToURL">
-                                <a href="http://157.65.85.250:25565/map.html">マップを確認する</a>
+                                <a href="http://157.65.85.250:25565/showItems.html">アイテムを確認する</a>
                             </div>  
                         </td>
                     </tr>
@@ -115,7 +116,10 @@
 
         <div id="quiz">
             <br>
-            <h2 id="hello"></h2>
+            <h2 id="countDown">読み込み中...</h2>
+            <div id="details" style="text-align: end;">
+                <h2 id="hello" style="display: inline;"></h2>
+            </div>
             <div id="quizItemBorder">
                 <img src="image\undefined.png" id="quizImg" alt="quizImg" width="9%">
             
@@ -137,7 +141,7 @@
                         
                         </div>
                         <br>
-                        <div class="selection">
+                        <!--<div class="selection">
                             <input id="selectOne" type="radio" name="answer">
                             <label for="selectOne" id="selectionOne"></label>
                         </div>
@@ -148,9 +152,46 @@
                         <div class="selection">
                             <input id="selectThree" type="radio" name="answer">
                             <label for="selectThree" id="selectionThree"></label>
+                        </div> -->
+                        <div class="card">
+                            <div class="selection">
+                              <input id="selectOne" type="radio" name="answer">
+                              <label for="selectOne" id="selectionOne"></label><img src="image/correct.png" style="display: inline;" id="correctImgOne" class="correctImg">
+                            </div>
+                            <div class="selection">
+                              <input id="selectTwo" type="radio" name="answer">
+                              <label for="selectTwo" id="selectionTwo"></label><img src="image/correct.png" style="display: inline;" id="correctImgTwo" class="correctImg">                    
+                            </div>
+                            <div class="selection">
+                              <input id="selectThree" type="radio" name="answer">
+                              <label for="selectThree" id="selectionThree"></label><img src="image/correct.png" style="display: inline;" id="correctImgThree" class="correctImg">
+                            </div>
+                            <label class="radio">
+                              <input id="" type="radio" name="answer">
+                              <span class="outer"><span class="inner"></span></span>
+                            </label>
+                            <label class="radio">
+                              <input id="radio2" type="radio" name="answer">
+                              <span class="outer"><span class="inner"></span></span>
+                            </label>
+                            <label class="radio">
+                              <input id="radio3" type="radio" name="answer">
+                              <span class="outer"><span class="inner"></span></span>
+                            </label>
+                            <label class="radio">
+                              <input id="radio4" type="radio" name="answer">
+                              <span class="outer"><span class="inner"></span></span>
+                            </label>
+                            <label class="radio">
+                              <input id="radio5" type="radio" name="answer">
+                              <span class="outer"><span class="inner"></span></span>
+                            </label>
+                            <link rel="stylesheet" href="import.css">
                         </div>
+            
                         <br>
                         <br>
+                        <h2 id="selectCaution">※答えだと思うものを選択してください</h2>
                         <span id="answerSpan">
                             <div class="answerBtn">
                                 <button id="answerButton" type="button">
@@ -188,7 +229,7 @@
                                 </td>
                                 <td>
                                     <div id="goToURL">
-                                        <a href="http://157.65.85.250:25565/map.html">マップを確認する</a>
+                                        <a href="http://157.65.85.250:25565/showItems.html">アイテムを確認する</a>
                                     </div>  
                                 </td>
                             </tr>

@@ -20,6 +20,61 @@
   "80053": {
     "nickName": "G"
   },
+  "1818732": {
+    "nickName": "ああ",
+    "items": {
+      "ポリジュース薬": {
+        "base_damage": "100",
+        "attributes": [
+          "Fire",
+          "Dirt"
+        ],
+        "imageURL": "https://cdn.discordapp.com/attachments/1083021323967672421/1113744672435736576/latest.png"
+      },
+      "諸刃の剣あ": {
+        "base_damage": "1030",
+        "attributes": [
+          "Fire",
+          "Dirt"
+        ],
+        "imageURL": "https://cdn.discordapp.com/attachments/1083021323967672421/1113744672435736576/latest.png"
+      },
+      "w": {
+        "base_damage": "103100",
+        "attributes": [
+          "Fire",
+          "Dirt"
+        ],
+        "imageURL": "https://cdn.discordapp.com/attachments/1083021323967672421/1113744672435736576/latest.png"
+      }
+    }
+  },
+  "2028619": {
+    "nickName": "a",
+    "items": {
+      "諸刃の剣あ": {
+        "base_damage": "100",
+        "attributes": [
+          "Fire",
+          "Dirt"
+        ],
+        "imageURL": "https://cdn.discordapp.com/attachments/1083021323967672421/1113744672435736576/latest.png"
+      }
+    }
+  },
+  "2532868": {
+    "nickName": "かのき",
+    "items": {
+      "ポリジュース薬": {
+        "base_damage": "100",
+        "attributes": [
+          "Fire",
+          "Dirt"
+        ],
+        "imageURL": "https://cdn.discordapp.com/attachments/1083021323967672421/1113744672435736576/latest.png"
+      }
+    }
+  },
   "2939506": {
     "nickName": "w",
     "items": {
@@ -32,11 +87,97 @@
       }
     }
   },
+  "2969158": {
+    "nickName": "wa"
+  },
   "3779078": {
     "nickName": "w"
   },
   "3878141": {
     "nickName": "a"
+  },
+  "5391615": {
+    "nickName": "k",
+    "items": {
+      "諸刃の剣あ": {
+        "base_damage": "400",
+        "attributes": [
+          "Fire",
+          "Dirt",
+          "Sun",
+          "Elect"
+        ],
+        "imageURL": "https://cdn.discordapp.com/attachments/1083021323967672421/1113744672435736576/latest.png"
+      },
+      "ポリジュース薬": {
+        "base_damage": "400",
+        "attributes": [
+          "Fire",
+          "Dirt",
+          "Sun",
+          "Elect"
+        ],
+        "imageURL": "https://cdn.discordapp.com/attachments/1083021323967672421/1113744672435736576/latest.png"
+      }
+    }
+  },
+  "6624177": {
+    "nickName": "a"
+  },
+  "6686721": {
+    "nickName": "a",
+    "items": {
+      "ポリジュース薬": {
+        "base_damage": "100",
+        "attributes": [
+          "Fire",
+          "Dirt"
+        ],
+        "imageURL": "https://cdn.discordapp.com/attachments/1083021323967672421/1113744672435736576/latest.png"
+      },
+      "諸刃の剣あ": {
+        "base_damage": "1",
+        "attributes": [
+          "Dirt"
+        ],
+        "imageURL": "https://cdn.discordapp.com/attachments/1083021323967672421/1113744672435736576/latest.png"
+      },
+      "w": {
+        "base_damage": "124421",
+        "attributes": [
+          "Dirt"
+        ],
+        "imageURL": "https://cdn.discordapp.com/attachments/1083021323967672421/1113744672435736576/latest.png"
+      },
+      "諸刃のa剣あ": {
+        "base_damage": "123",
+        "attributes": [
+          "Dirt"
+        ],
+        "imageURL": "https://cdn.discordapp.com/attachments/1083021323967672421/1113744672435736576/latest.png"
+      }
+    }
+  },
+  "7652351": {
+    "nickName": "あり",
+    "items": {
+      "諸刃の剣あ": {
+        "base_damage": "200",
+        "attributes": [
+          "Fire",
+          "Dirt"
+        ],
+        "imageURL": "https://cdn.discordapp.com/attachments/1083021323967672421/1113744672435736576/latest.png"
+      },
+      "ポリジュース薬": {
+        "base_damage": "200",
+        "attributes": [
+          "Fire",
+          "Dirt"
+        ],
+        "imageURL": "https://cdn.discordapp.com/attachments/1083021323967672421/1113744672435736576/latest.png"
+      }
+    }
   },
   "8999688": {
     "nickName": "wa"
@@ -60,5 +201,49 @@
         ]
       }
     }
+  },
+  "9288157": {
+    "nickName": "かああ",
+    "items": {
+      "諸刃の剣あ": {
+        "base_damage": "300",
+        "attributes": [
+          "Dirt"
+        ],
+        "imageURL": "https://cdn.discordapp.com/attachments/1083021323967672421/1113744672435736576/latest.png"
+      },
+      "ポリジュース薬": {
+        "base_damage": "100",
+        "attributes": [
+          "Fire",
+          "Dirt"
+        ],
+        "imageURL": "https://cdn.discordapp.com/attachments/1083021323967672421/1113744672435736576/latest.png"
+      }
+    }
+  },
+  "9490045": {
+    "nickName": "かのきまじ",
+    "items": {
+      "諸刃の剣あ": {
+        "base_damage": "200",
+        "attributes": [
+          "Fire",
+          "Dirt"
+        ],
+        "imageURL": "https://cdn.discordapp.com/attachments/1083021323967672421/1113744672435736576/latest.png"
+      },
+      "ポリジュース薬": {
+        "base_damage": "100",
+        "attributes": [
+          "Fire",
+          "Dirt"
+        ],
+        "imageURL": "https://cdn.discordapp.com/attachments/1083021323967672421/1113744672435736576/latest.png"
+      }
+    }
+  },
+  "9528087": {
+    "nickName": "かのき"
   }
 }

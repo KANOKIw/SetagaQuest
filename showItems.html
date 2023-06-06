@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="showItems.css">
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha384-rY/jv8mMhqDabXSo+UCggqKtdmBfd3qC2/KvyTDNQ6PcUJXaxK1tMepoQda4g5vB"
+  crossorigin="anonymous"></script>
+
+  <script src="showItems.js"></script>
+  <script src=""></script>
+
+
+<head>
+  <title>【セタガクエスト】アイテムリスト</title></head>
+<body>
+    <div class="topcontainer">
+        <div class="topsquare">
+            <br>
+            <div id="top">
+                <img
+                  src="https://cdn.discordapp.com/icons/1101399573991268374/a_c3ede8a7240af692d46e1d786b13dbb8.gif?size=1024"
+                  width="8%">
+                <img src="image/title.png" width="50%">
+                <div id="topTitle" style="display: inline;">アイテムリスト</div><br>
+                <div class="longUnderLine"></div><br><br>
+            </div>
+        </div>
+    </div>
+
+    <div id="notCustomer">
+        <span style="font-size: 200%;">
+            <br>
+            <div id="notCTM">
+                おかえりなさい！<br>
+                残念ながらセタガクエストに参加していないとアイテムを見ることはできません<br>
+                4Fの教室にきて手を貸してください！
+                <h3 id="countDownNCM">読み込み中...</h3>
+            </div>
+        </span>
+    </div>
+    <div id="main">
+        
+        <br>
+        <h2 id="countDown">読み込み中...</h2>
+        <div id="details" style="text-align: end;">
+            <h2 id="hello" style="display: inline;"></h2>
+        </div>
+        <table id="goToOtherURL-nick">
+            <tr>
+                <td>
+                    <div id="goToURL">
+                        <a href="http://157.65.85.250:25565/map.html">マップを確認する</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <div class="container">
+        <div class="square">
+            <h1 id="loading" style="text-align: center; padding-top: 20px;">読み込み中...</h1>
+            <br>
+            <div id="clientItems"></div>
+        </div>
+        </div>
+    </div>
+</body>

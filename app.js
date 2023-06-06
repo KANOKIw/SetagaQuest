@@ -232,3 +232,9 @@ app.post("/newClientID", function(req, res) {
 
     res.send(String(newID));
 })
+
+
+app.post("/getEndsAt", function(req, res) {
+    var deltarr = JSON.parse(fs.readFileSync("./eventData/endsAt.json", "utf8"));
+    res.send(deltarr)
+})

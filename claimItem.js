@@ -3,6 +3,9 @@ var correct = 0;
 var wrong = 0;
 var lastQuestion = 0;
 var nickName = void(0);
+var endsAt
+var allEndsAt
+
 
 //外部からのnickNameアクセスを禁止
 var url_id = String(getParam("id"));
@@ -76,131 +79,256 @@ function cleandoc(text) {
 $(function (){
     console.log("SetagaQuest.ClientID: " + clientID)
     $(".correctImg").hide()
-    // 開発用(そのうち消す)
-    if (url_id === "reset"){
-        if (clientID === null){
-            $("#badRequest").show();
-            $("#topTitle").text("Bad Request");
-            return;
-        } else {
-            localStorage.removeItem("SetagaQuestClientID")
-            console.log(localStorage.getItem("SetagaQuestClientID"))
-            return;
-        }
-    }
-
-    // お客さんのブラウザがローカルストレージ使用可能か/不可の場合IPアドレスで保存
-    if (typeof localStorage !== 'undefined') {
-        try {
-            localStorage.setItem('dummy', '1');
-            if (localStorage.getItem('dummy') === '1') {
-                localStorage.removeItem('dummy');
-                // 使用可能(これより下は使用不可)
-            } else {
-                clientID = "IP";
-            }
-        } catch(e) {
-            clientID = "IP";
-        }
-    } else {
-        clientID = "IP";
-    }
-
-    if (clientID === null){
-        if (String(url_id) === "nickName"){
-            $.post("/newClientID", null).done(newID => {
-                localStorage.setItem("SetagaQuestClientID", newID);
-                clientID = newID
-                $("#whole").show();
-                $("#quiz").hide();
-                $("#registerNickname").show();
-                $("#nicked").show();
-                $("#submitNickname").click(x => clientNicked());
-                return;
-            })
-        } else {
-            $("#notCustomer").show();
-            return;
-        }
-    } else {
-        var postData = {
-            "type": "Quiz",
-            "url_id": url_id,
-            "clientID": clientID
-        }
-        console.log("SetagaQuest.ClientID: " + clientID)
-        
-        var p = {
-            "clientID": clientID
-        }
-        $.post("/getNick", p).done(res => {
-            if (!(res === null)){
-                $("#hello").text(res + "さん、こんにちは!")
-            } else {
-                $("#hello").hide()
-                console.log("a")
-            }
-        })
-
-        $.post("/init", postData).done(res => {
-            if(res === "not customer"){
-                $("#notCustomer").show();
-                return;
-
-            } else if(String(res).includes("claimed item")){
-                var _alrHavingItemName = res.replace("claimed item", "")
-                $("#claimed-item").show();
-                $("#claimed-item-description-sub").text("既にこのアイテムを獲得しています(" + _alrHavingItemName + ")")
-                $("#goToOtherURL-claimedItem").show();
-                return;
-
-            } else if(res === "incorrect ID"){
+    $.post("/getEndsAt", null).done(res => {
+        console.log(res)
+        endsAt = res["endsAt"]
+        allEndsAt = res["allEndsAt"]
+        console.log(allEndsAt)
+    
+        // 開発用(そのうち消す)
+        if (url_id === "reset"){
+            if (clientID === null){
                 $("#badRequest").show();
                 $("#topTitle").text("Bad Request");
                 return;
-
-            } else if(res === "not nicked yet"){
-                $("#whole").show();
-                $("#quiz").hide();
-                $("#registerNickname").show();
-                $("#nicked").show();
-                $("#topTitle").text("ニックネーム");
-                $("#submitNickname").click(x => clientNicked());
+            } else {
+                localStorage.removeItem("SetagaQuestClientID")
+                console.log(localStorage.getItem("SetagaQuestClientID"))
                 return;
-
-            } else if(res === "already nicked"){
-                $("#whole").show();
-                $("#quiz").hide();
-                $("#topTitle").text("ニックネーム");
-                $("#firstFind").text("既にニックネームが登録されています");
-                $("#firstfindDes").text("引き続きセタガクエストをお楽しみください");
-                $("#goToOtherURL-nick").show();
-                return;
-            } else{
-                itemInfo = res
-                $("#whole").show();
-
-                $("#answerButton").click(function() {
-                    checkAnswer(itemInfo);
-                })
-
-                $(".showResult").hide();
-
-                $("#registerNickname").remove();
-                $("#quiz").show();
-                console.log(itemInfo["ItemName"])
-                $("#quizItem").text(itemInfo["ItemName"]);
-                $("#quizImg").attr("src", itemInfo["ItemImgURL"]);
-                $("#questionTitle").text("問: " + itemInfo["questionOne"]["title"]);
-                $("#selectionOne").text("1." + itemInfo["questionOne"]["selFirst"]);
-                $("#selectionTwo").text("2." + itemInfo["questionOne"]["selSecond"]);
-                $("#selectionThree").text("3." + itemInfo["questionOne"]["selThird"]);
-                $("#questionCount").text("1/" + (Object.keys(itemInfo).length -3) + "問目");
-
-                $("#Des").hide();
             }
-        })
-    }
+        }
+
+        // お客さんのブラウザがローカルストレージ使用可能か/不可の場合IPアドレスで保存
+        if (typeof localStorage !== 'undefined') {
+            try {
+                localStorage.setItem('dummy', '1');
+                if (localStorage.getItem('dummy') === '1') {
+                    localStorage.removeItem('dummy');
+                    // 使用可能(これより下は使用不可)
+                } else {
+                    clientID = "IP";
+                }
+            } catch(e) {
+                clientID = "IP";
+            }
+        } else {
+            clientID = "IP";
+        }
+
+        if (clientID === null){
+            if (String(url_id) === "nickName"){
+                $.post("/newClientID", null).done(newID => {
+                    localStorage.setItem("SetagaQuestClientID", newID);
+                    clientID = newID
+                    $("#whole").show();
+                    $("#quiz").hide();
+                    $("#registerNickname").show();
+                    $("#nicked").show();
+                    $("#submitNickname").click(x => clientNicked());
+                    return;
+                })
+            } else {
+                $("#notCustomer").show();
+                var countDownDate = new Date(allEndsAt).getTime();
+                var countdown = setInterval(function() {
+                    var now = new Date().getTime();
+                    var distance = countDownDate - now;
+
+                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    if (days === 0 && minutes === 0 && hours === 0){
+                        $("#countDownNCM").text(`次の開催: 約 ${seconds}秒 後`)
+                    } else if (hours === 0 && days === 0){
+                        $("#countDownNCM").text(`次の開催: 約 ${minutes}分 ${seconds}秒 後`)
+                    } else if (days === 0 && !(hours === 0) && !(minutes === 0)){
+                        $("#countDownNCM").text(`次の開催: 約 ${hours}時間 ${minutes}分 ${seconds}秒 後`)
+                    } else {
+                        $("#countDownNCM").text(`次の開催: 約 ${days}日 ${hours}時間 ${minutes}分 ${seconds}秒 後`)
+                    }
+
+                    if (distance <= 120000) {
+                        console.log("まもなく始まります");
+                        $("#countDownNCM").css("color", "red")
+                        $("#countDownNCM").text(`まもなく始まります: 4Fに向かいましょう!`)
+                    }
+                    if (distance <= 0) {
+                        clearInterval(countdown);
+                        $("#countDownNCM").css("color", "red")
+                        $("#countDownNCM").text(`先ほど始まってしまいました。このサイトを再読み込みして次を確認しましょう！`)
+                    }
+                }, 1000);
+                return;
+            }
+        } else {
+            var postData = {
+                "type": "Quiz",
+                "url_id": url_id,
+                "clientID": clientID
+            }
+            console.log("SetagaQuest.ClientID: " + clientID)
+            
+            var p = {
+                "clientID": clientID
+            }
+            $.post("/getNick", p).done(res => {
+                if (!(res === null)){
+                    $("#hello").text(res + "さん、こんにちは!")
+                } else {
+                    $("#hello").hide()
+                    console.log("a")
+                }
+            })
+
+            $.post("/init", postData).done(res => {
+                if(res === "not customer"){
+                    $("#notCustomer").show();
+                    var countDownDate = new Date(allEndsAt).getTime();
+                    var countdown = setInterval(function() {
+                        var now = new Date().getTime();
+                        var distance = countDownDate - now;
+
+                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                        if (days === 0 && minutes === 0 && hours === 0){
+                            $("#countDownNCM").text(`次の開催: 約 ${seconds}秒 後`)
+                        } else if (hours === 0 && days === 0){
+                            $("#countDownNCM").text(`次の開催: 約 ${minutes}分 ${seconds}秒 後`)
+                        } else if (days === 0 && !(hours === 0) && !(minutes === 0)){
+                            $("#countDownNCM").text(`次の開催: 約 ${hours}時間 ${minutes}分 ${seconds}秒 後`)
+                        } else {
+                            $("#countDownNCM").text(`次の開催: 約 ${days}日 ${hours}時間 ${minutes}分 ${seconds}秒 後`)
+                        }
+
+                        if (distance <= 120000) {
+                            console.log("まもなく始まります");
+                            $("#countDownNCM").css("color", "red")
+                            $("#countDownNCM").text(`まもなく始まります: 4Fに向かいましょう!`)
+                        }
+                        if (distance <= 0) {
+                            clearInterval(countdown);
+                            $("#countDownNCM").css("color", "red")
+                            $("#countDownNCM").text(`先ほど始まってしまいました。このサイトを再読み込みして次を確認しましょう！`)
+                        }
+                    }, 1000);
+                    return;
+
+                } else if(String(res).includes("claimed item")){
+                    var _alrHavingItemName = res.replace("claimed item", "")
+                    $("#claimed-item").show();
+                    $("#claimed-item-description-sub").text("既にこのアイテムを獲得しています(" + _alrHavingItemName + ")")
+                    $("#goToOtherURL-claimedItem").show();
+                    $("#countDownAlrClm").show()
+                    var countDownDate = new Date(endsAt).getTime();
+                    var countdown = setInterval(function() {
+                        var now = new Date().getTime();
+                        var distance = countDownDate - now;
+
+                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                        if (days === 0 && minutes === 0 && hours === 0){
+                            $("#countDownAlrClm").text(`終了まで: ${seconds}秒`)
+                        } else if (hours === 0 && days === 0){
+                            $("#countDownAlrClm").text(`終了まで: ${minutes}分 ${seconds}秒`)
+                        } else if (days === 0 && !(hours === 0) && !(minutes === 0)){
+                            $("#countDownAlrClm").text(`終了まで: ${hours}時間 ${minutes}分 ${seconds}秒`)
+                        } else {
+                            $("#countDownAlrClm").text(`終了まで: ${days}日 ${hours}時間 ${minutes}分 ${seconds}秒`)
+                        }
+
+                        if (distance <= 0) {
+                            clearInterval(countdown);
+                            console.log("タイムオーバー");
+                            $("#countDownAlrClm").css("color", "red")
+                            $("#countDownAlrClm").text(`タイムオーバー: 直ちに4Fに戻ってください`)
+                        }
+                    }, 1000);
+                    return;
+
+                } else if(res === "incorrect ID"){
+                    $("#badRequest").show();
+                    $("#topTitle").text("Bad Request");
+                    return;
+
+                } else if(res === "not nicked yet"){
+                    $("#whole").show();
+                    $("#quiz").hide();
+                    $("#registerNickname").show();
+                    $("#nicked").show();
+                    $("#topTitle").text("ニックネーム");
+                    $("#submitNickname").click(x => clientNicked());
+                    return;
+
+                } else if(res === "already nicked"){
+                    $("#whole").show();
+                    $("#quiz").hide();
+                    $("#topTitle").text("ニックネーム");
+                    $("#firstFind").text("既にニックネームが登録されています");
+                    $("#firstfindDes").text("引き続きセタガクエストをお楽しみください");
+                    $("#goToOtherURL-nick").show();
+                    return;
+                } else{
+                    itemInfo = res
+                    $("#whole").show();
+
+                    $("#answerButton").click(function() {
+                        checkAnswer(itemInfo);
+                    })
+
+                    $(".showResult").hide();
+
+                    $("#registerNickname").remove();
+                    $("#quiz").show();
+                    console.log(itemInfo["ItemName"])
+                    $("#quizItem").text(itemInfo["ItemName"]);
+                    $("#quizImg").attr("src", itemInfo["ItemImgURL"]);
+                    $("#questionTitle").text("問: " + itemInfo["questionOne"]["title"]);
+                    $("#selectionOne").text("1." + itemInfo["questionOne"]["selFirst"]);
+                    $("#selectionTwo").text("2." + itemInfo["questionOne"]["selSecond"]);
+                    $("#selectionThree").text("3." + itemInfo["questionOne"]["selThird"]);
+                    $("#questionCount").text("1/" + (Object.keys(itemInfo).length -3) + "問目");
+
+                    $("#Des").hide();
+                    var countDownDate = new Date(endsAt).getTime();
+                    var countdown = setInterval(function() {
+                        var now = new Date().getTime();
+                        var distance = countDownDate - now;
+
+                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                        if (days === 0 && minutes === 0 && hours === 0){
+                            $("#countDown").text(`終了まで: ${seconds}秒`)
+                        } else if (hours === 0 && days === 0){
+                            $("#countDown").text(`終了まで: ${minutes}分 ${seconds}秒`)
+                        } else if (days === 0 && !(hours === 0) && !(minutes === 0)){
+                            $("#countDown").text(`終了まで: ${hours}時間 ${minutes}分 ${seconds}秒`)
+                        } else {
+                            $("#countDown").text(`終了まで: ${days}日 ${hours}時間 ${minutes}分 ${seconds}秒`)
+                        }
+
+                        if (distance <= 0) {
+                            clearInterval(countdown);
+                            console.log("タイムオーバー");
+                            $("#countDown").css("color", "red")
+                            $("#countDown").text(`タイムオーバー: 直ちに4Fに戻ってください`)
+                        }
+                    }, 1000);
+                }
+            })
+        
+        }
+    })
 })
 
 
@@ -230,7 +358,10 @@ function clientNicked(){
 
 function checkAnswer(quizinfo){
     var answer_sel = document.querySelector("input[name='answer']:checked");
+    $("#selectCaution").css("visibility", "hidden")
     if (answer_sel === null){
+        $("#selectCaution").css("visibility", "visible")
+        $("#selectCaution").text("※答えだと思うものを選択してください")
         return;
     }
 
@@ -248,6 +379,7 @@ function checkAnswer(quizinfo){
                 [String(itemInfo["ItemName"])]: {
                     "base_damage": status["baseDmg"],
                     "attributes": status["attributes"],
+                    "imageURL": quizinfo["ItemImgURL"]
                 }
             }
         }

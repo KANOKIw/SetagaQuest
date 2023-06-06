@@ -8,3 +8,13 @@ for (let i = 0; i < clientItemList.length; i++){
     clientScore += Number.parseInt(clientdata["items"][key_item]["base_damage"])
 }
 console.log(clientScore)
+
+// Better
+$.post("/clientData", postData).done(res => {
+    var clientdata = res
+    var score = 0
+    for (let itemname in clientdata["items"]){
+        score += Number.parseInt(clientdata["items"][itemname]["base_damage"])
+    }
+    console.log(score)
+})
