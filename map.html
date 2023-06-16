@@ -19,8 +19,8 @@
             <br>
             <div id="top">
                 <img
-                src="https://cdn.discordapp.com/icons/1101399573991268374/a_c3ede8a7240af692d46e1d786b13dbb8.gif?size=1024"
-                width="8%">
+                  src="https://cdn.discordapp.com/icons/1101399573991268374/a_c3ede8a7240af692d46e1d786b13dbb8.gif?size=1024"
+                  width="8%">
                 <img src="image/title.png" width="50%">
                 <div id="topTitle" style="display: inline;">校内マップ</div><br>
                 <div class="longUnderLine"></div><br><br>
@@ -47,7 +47,7 @@
             <tr>
                 <td>
                     <div id="goToURL">
-                        <a href="http://157.65.85.250:25565/showItems.html">アイテムを確認する</a>
+                        <a href="http://219.102.171.100:25565/inventory.html">インベントリを見る</a>
                     </div>
                 </td>
             </tr>
@@ -61,11 +61,6 @@
                 <p class="map_setumei">2階マップを表示中</p>
             <div class="relative">
                 <img src="image/map_2f_test.png" class="mainmap"; id="map_2f_main">
-                <!-- 以下にチェックマーク 普通にやり方頭悪いわこれ-->
-                <img src="image/medal_gomi.png" class="absolute map_2f_1" id="map_2f_1_D" style="display: none;">
-                <img src="image/medal_bronze.png" class="absolute map_2f_1" id="map_2f_1_C" style="display: none;">
-                <img src="image/medal_silver.png" class="absolute map_2f_1" id="map_2f_1_B" style="display: none;">
-                <img src="image/medal_gold.png" class="absolute map_2f_1" id="map_2f_1_A" style="display: none;">
             </div>    
             </div>
         <input type="radio" name="tab_name" id="tab_2" checked>
@@ -74,11 +69,6 @@
                 <p class="map_setumei">3階マップを表示中</p>
             <div class="relative">
                 <img src="image/map_2f_test.png" class="mainmap"; id="map_3f_main">
-                <!-- 以下にチェックマーク -->
-                <img src="image/medal_gomi.png" class="absolute map_3f_1" id="map_3f_1_D" style="display: none;">
-                <img src="image/medal_bronze.png" class="absolute map_3f_1" id="map_3f_1_C" style="display: none;">
-                <img src="image/medal_silver.png" class="absolute map_3f_1" id="map_3f_1_B" style="display: none;">
-                <img src="image/medal_gold.png" class="absolute map_3f_1" id="map_3f_1_A" style="display: none;">
             </div>    
             </div>
         <input type="radio" name="tab_name" id="tab_3" checked>
@@ -87,13 +77,53 @@
                 <p class="map_setumei">4階マップを表示中</p>
             <div class="relative">
                 <img src="image/map_2f_test.png" class="mainmap"; id="map_4f_main">
-                <!-- 以下にチェックマーク -->
-                <img src="image/medal_gomi.png" class="absolute map_4f_1" id="map_4f_1_D" style="display: none;">
-                <img src="image/medal_bronze.png" class="absolute map_4f_1" id="map_4f_1_C" style="display: none;">
-                <img src="image/medal_silver.png" class="absolute map_4f_1" id="map_4f_1_B" style="display: none;">
-                <img src="image/medal_gold.png" class="absolute map_4f_1" id="map_4f_1_A" style="display: none;">
+                <!-- 4階祠1 -->
+                <a class="js-modal-open" href="" data-target="modal01"><img src="image/hokoratest_normal.png" id="map_4f_1" class="absolute markers"></a>
+                <a class="js-modal-open" href="" data-target="modal02"><img src="image/hokoratest_normal.png" id="map_4f_2" class="absolute markers"></a>
+                <a class="js-modal-open" href="" data-target="modal03"><img src="image/hokoratest_normal.png" id="map_4f_3" class="absolute markers"></a>
+                <a class="js-modal-open" href="" data-target="modal04"><img src="image/hokoratest_normal.png" id="map_4f_4" class="absolute markers"></a>
+            </div>
+            <div id="modal01" class="modal js-modal">
+                <div class="modal__bg js-modal-close"></div>
+                <div class="modal__content">
+                    <!-- 4f_1 -->
+                    <p id="modal_text_4f_1"><br>定義されていません</p>
+                    <a class="js-modal-close" href="">閉じる</a>
+                </div><!--modal__inner-->
+            </div><!--modal-->
+            <div id="modal02" class="modal js-modal">
+                <div class="modal__bg js-modal-close"></div>
+                <div class="modal__content">
+                    <!-- 4f_2 -->
+                    <p id="modal_text_4f_2">定義されていません</p>
+                    <a class="js-modal-close" href="">閉じる</a>
+                </div><!--modal__inner-->
+            </div><!--modal-->
+            <div id="modal03" class="modal js-modal">
+                <div class="modal__bg js-modal-close"></div>
+                <div class="modal__content">
+                    <!-- 4f_3 -->
+                    <p id="modal_text_4f_3">定義されていません</p>
+                    <a class="js-modal-close" href="">閉じる</a>
+                </div><!--modal__inner-->
+            </div><!--modal-->
+            <div id="modal04" class="modal js-modal">
+                <div class="modal__bg js-modal-close"></div>
+                <div class="modal__content">
+                    <!-- 4f_4 -->
+                    <p id="modal_text_4f_4">定義されていません</p>
+                    <a class="js-modal-close" href="">閉じる</a>
+                </div><!--modal__inner-->
+
+            </div>
+                <br>
+                <div id="achieved_4f">
+                    現在攻略完了した祠の数：
+                <div id="achieved_numbers_4f">
+                </div>
             </div>    
             </div>
     </div>
+
 </body>
 </html>

@@ -1,5 +1,6 @@
 var express = require('express');
 const bodyParser = require('body-parser');
+const socketIo = require('socket.io');
 
 var app = express();
 app.use(express.static('./'));
@@ -7,6 +8,9 @@ var datetime = new Date();
 
 const fs = require("fs");
 const { stringify } = require('querystring');
+const { isPromise } = require('util/types');
+const QR = require('qrcode');
+
 
 // urlencodedとjsonは別々に初期化する
 app.use(bodyParser.urlencoded({
@@ -14,9 +18,10 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+
 var port = 25565;
-app.listen(port,function(){
-	console.log(datetimeNow() +" Express Server is online mode:%s",port,app.settings.env);
+app.listen(port, function(){
+	console.log(datetimeNow() +" Runnig Express Server at mode:%s",port,app.settings.env);
 });
 
 
@@ -28,14 +33,17 @@ var getIP = function (req){
 }
 
 
-const __morohanoturugi__ = JSON.parse(fs.readFileSync("./item/morohanoturugi.json", "utf8"));
-const __porizyuusu__ = JSON.parse(fs.readFileSync("./item/porizyuusu.json", "utf8"));
+const __quizinfo_1 = JSON.parse(fs.readFileSync("./item/quizinfo-1.json", "utf8"));
+const __quizinfo_2 = JSON.parse(fs.readFileSync("./item/quizinfo-2.json", "utf8"));
+const __quizinfo_3 = JSON.parse(fs.readFileSync("./item/quizinfo-3.json", "utf8"));
 const __villagerHint_1 = JSON.parse(fs.readFileSync("./item/villagerHint-1.json", "utf8"));
 const __villagerHint_2 = JSON.parse(fs.readFileSync("./item/villagerHint-2.json", "utf8"));
 
-const ItemID = {
-    "a": __morohanoturugi__,
-    "6800": __porizyuusu__,
+
+const IDmap = {
+    "4353": __quizinfo_1,
+    "6800": __quizinfo_2,
+    "8982": __quizinfo_3,
     "33402": __villagerHint_1,
     "35749": __villagerHint_2
 }
@@ -67,15 +75,38 @@ function datetimeNow(){
     return "[" + year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second + "]"
 }
 
+function datetimeForFp(){
+    var datetime = new Date()
+    var month = datetime.getMonth()
+    var date = datetime.getDate();
+    var hour = datetime.getHours();
+    var minute = datetime.getMinutes();
+    if (month < 10){
+        month = "0" + month
+    }
+    if (date < 10){
+        date = "0" + date
+    }
+    if (hour < 10){
+        hour = "0" + hour
+    }
+    if (minute < 10){
+        minute = "0" + minute
+    }
+    
+    return month + "m-" + date + "d-" + hour + "h-" + minute + "m"
+}
+
 app.post("/data", function(req, res) {
     var clientIP = getIP(req);
+    var team = req.body["team"]
 
     if (!(req.body["x"] === void(0))){
         try{
-            var allData = JSON.parse(fs.readFileSync("./clientData/client-data.json", "utf8"));
+            var allData = JSON.parse(fs.readFileSync(`./clientData/client-data-team${team}.json`, "utf8"));
         } catch(e){
-            var allData = {};
-        };
+            var allData = {}
+        }
 
         var clientID = req.body["clientID"]
         if (clientID === "IP"){
@@ -83,59 +114,77 @@ app.post("/data", function(req, res) {
         }
 
         allData[clientID] = {
-            "nickName": req.body["x"]
+            "nickName": req.body["x"],
+            "kagos": [],
+            "items": [],
+            "finishedevents": []
         };
 
         console.log(Object.keys(allData).length + " users ever nicked")
         allData = JSON.stringify(allData, null, 2);
-        fs.writeFileSync("./clientData/client-data.json", allData);
-        return;
+        fs.writeFileSync(`./clientData/client-data-team${team}.json`, allData);
+        return
     }
 
     var clientData = req.body;
-    var clientID = clientData["items"]["clientID"];
-    var itemName = clientData["items"]["itemName"];
-    delete clientData["items"]["clientID"];
-    delete clientData["items"]["itemName"];
+    var clientID = clientData["clientID"];
+    var url_id = clientData["url_id"];
 
     try {
-        var allClientData = JSON.parse(fs.readFileSync("./clientData/client-data.json", "utf8"));
+        var allClientData = JSON.parse(fs.readFileSync(`./clientData/client-data-team${team}.json`, "utf8"));
+
         if (Object.keys(allClientData).includes(clientID)){
-            if (allClientData[clientID]["items"] === undefined){
-                clientItems = {};
+            if (allClientData[clientID]["kagos"] === undefined){
+                var clientkagos = [];
             } else {
-                var clientItems = allClientData[clientID]["items"];
+                var clientkagos = allClientData[clientID]["kagos"];
             }
         } else {
-            var clientItems = {};
+            var clientkagos = [];
         }
     } catch (e){
         var allClientData = {};
-        var clientItems = {};
-    };
+        var clientkagos = [];
+    }
+
 
     if (Object.keys(allClientData).includes(clientID)){
-        var newClientItem = clientData["items"][itemName];
-        clientItems[itemName] = newClientItem;
+        var newClientkago = clientData["kagoinfo"];
         var clientNickName = allClientData[clientID]["nickName"];
+        var clientitems = allClientData[clientID]["items"]
+        var finishedevents = allClientData[clientID]["finishedevents"]
+
+        if (clientitems == (undefined || null)){
+            clientitems = []
+        }
+        if (finishedevents == (undefined || null)){
+            finishedevents = []
+        }
+
+        finishedevents.push(url_id)
+        clientkagos.push(newClientkago)
         allClientData[clientID] = {
             "nickName": clientNickName,
-            "items": clientItems
-        };
+            "kagos": clientkagos,
+            "items": clientitems,
+            "finishedevents": finishedevents
+        }
     } else {
         allClientData[clientID] = clientData;
-    };
+    }
     
     allClientData = JSON.stringify(allClientData, null, 2);
-    fs.writeFileSync("./clientData/client-data.json", allClientData);
-
-    res.send("claimed item on file");
+    fs.writeFileSync(`./clientData/client-data-team${team}.json`, allClientData);
+    
+    res.end();
 })
 
 
 app.post("/init", function(req, res) {
     var clientIP = getIP(req);
     var postData = req.body;
+    var req_url = postData["url"]
+    var team = postData["team"]
 
     var clientID = postData["clientID"];
     if (clientID === "IP"){
@@ -143,13 +192,19 @@ app.post("/init", function(req, res) {
     }
 
     var url_id = postData["url_id"];
-    var itemInfo = ItemID[url_id];
-
-
-    console.log(datetimeNow() + " " + clientIP + " accessed: " + url_id);
+    var info = IDmap[url_id];
+    var visiblefilename = String(req_url).replace("http://219.102.171.100:25565/", "")
+    try{
+        var data = JSON.parse(fs.readFileSync(`./clientData/client-data-team${team}.json`, "utf8"))
+        var clientnickname = data[clientID]["nickName"]
+    } catch(e){
+        var clientnickname = clientIP
+    }
+    
+    console.log(datetimeNow() + " " + clientnickname + " accessed: " + visiblefilename);
 
     try {
-        var allData = JSON.parse(fs.readFileSync("./clientData/client-data.json", "utf8"));
+        var allData = JSON.parse(fs.readFileSync(`./clientData/client-data-team${team}.json`, "utf8"));
     } catch(e){
         var allData = {};
     }
@@ -163,7 +218,6 @@ app.post("/init", function(req, res) {
         return;
     }
 
-    //nick登録したお客様か判別(und)
     try {
         if (!(Object.keys(allData).includes(clientID))){
             res.send("not customer");
@@ -174,15 +228,15 @@ app.post("/init", function(req, res) {
         return;
     }
 
-    if (!(itemInfo === void(0))){
-        if (!(allData[clientID]["items"] === (null || undefined))){
-            if (Object.keys(allData[clientID]["items"]).includes(itemInfo["ItemName"])){
-                res.send("claimed item" + itemInfo["ItemName"]);
+    if (!(info === void(0))){
+        if (!(allData[clientID]["kagos"] === (null || undefined))){
+            if (allData[clientID]["finishedevents"].includes(url_id)){
+                res.send("claimed item" + info["kagoname"]);
             } else{
-                res.send(itemInfo);
+                res.send(info);
             }
         } else {
-            res.send(itemInfo);
+            res.send(info);
         }
     } else {
         res.send("incorrect ID");
@@ -191,8 +245,9 @@ app.post("/init", function(req, res) {
 
 
 app.post("/clientData", function(req, res) {
+    var team = req.body["team"]
     var clientID = req.body["clientID"]
-    var _data = JSON.parse(fs.readFileSync("./clientData/client-data.json", "utf8"));
+    var _data = JSON.parse(fs.readFileSync(`./clientData/client-data-team${team}.json`, "utf8"));
     var _resdata = _data[clientID];
     res.send(_resdata);
 })
@@ -200,8 +255,9 @@ app.post("/clientData", function(req, res) {
 
 app.post("/getNick", function(req, res) {
     var clientID = req.body["clientID"]
+    var team = req.body["team"]
     try{
-        var _data = JSON.parse(fs.readFileSync("./clientData/client-data.json", "utf8"));
+        var _data = JSON.parse(fs.readFileSync(`./clientData/client-data-team${team}.json`, "utf8"));
         var _resdata = _data[clientID]["nickName"];
     } catch(e){
         res.send(null);
@@ -214,10 +270,11 @@ app.post("/getNick", function(req, res) {
 app.post("/newClientID", function(req, res) {
     var newID = Math.floor(Math.random() * (9999999 - 1000)) + 1000;
     var clientIP = getIP(req);
+    var team = req.body["team"]
     console.log(clientIP + ": Generating New ID");
 
     try {
-        var allClientData = JSON.parse(fs.readFileSync("./clientData/client-data.json", "utf8"));
+        var allClientData = JSON.parse(fs.readFileSync(`./clientData/client-data-team${team}.json`, "utf8"));
     } catch(e){
         res.send(String(newID));
         return;
@@ -227,7 +284,7 @@ app.post("/newClientID", function(req, res) {
         if (!(Object.keys(allClientData).includes(String(newID)))){
             break;
         }
-        newID = Math.floor(Math.random() * (99999 - 1)) + 1000;
+        newID = Math.floor(Math.random() * (9999999 - 1)) + 1000;
     } while (Object.keys(allClientData).includes(String(newID)));
 
     res.send(String(newID));
@@ -237,4 +294,240 @@ app.post("/newClientID", function(req, res) {
 app.post("/getEndsAt", function(req, res) {
     var deltarr = JSON.parse(fs.readFileSync("./eventData/endsAt.json", "utf8"));
     res.send(deltarr)
+})
+
+app.post("/modifyendsAt", (req, res) => {
+    var endsAt = req.body
+    endsAt = {
+        "endsAt": {
+            "1": endsAt["endsAt"][0],
+            "2": endsAt["endsAt"][1],
+            "3": endsAt["endsAt"][2]
+        },
+        "nextStartsAt": endsAt["nextStartsAt"]
+    }
+
+    endsAt = JSON.stringify(endsAt, null, 2)
+
+    fs.writeFileSync("./eventData/endsAt.json", endsAt)
+
+    res.send(true)
+})
+
+app.post("/IDmaplist", function(req, res) {
+    var idlist = Object.keys(IDmap)
+    res.send(idlist)
+})
+
+
+app.post("/allClientData", (req, res) => {
+    var clientID = req.body["clinetID"]
+    var tag
+    var log = req.body["log"]
+    var alldata = {}
+    for (var i of ["1", "2", "3"]){
+        try {
+            alldata[i] = JSON.parse(fs.readFileSync(`./clientData/client-data-team${i}.json`, "utf8"));
+        } catch(e){
+            ;
+        }
+    }
+
+    try{
+        for (let i of ["1", "2", "3"]){
+            try {
+                var nickname = alldata[i][clientID]["nickName"]
+            } catch(e){
+                clientID = void(0)
+            }
+        }
+    } catch(e){
+        clientID = void(0)
+    }
+
+    if (clientID){
+        tag = nickname
+    } else {
+        tag = getIP(req)
+    }
+
+    res.send(alldata)
+})
+
+app.post("/updatekagos", (req, res) => {
+    var data = req.body
+    var kagos = data["kagos"]
+    var clientid = data["clientid"]
+    var clientname = data["clientname"]
+    var kagoname = data["kagoname"]
+    var team = data["team"]
+    var clientIP = getIP(req)
+    var alldata = JSON.parse(fs.readFileSync(`./clientData/client-data-team${team}.json`, "utf8"))
+
+    if (data["removedkago"] !== undefined){
+        console.log("<system> " + datetimeNow() + " " + clientIP + ": removed " + kagoname + " from " + clientname)
+    } else if (data["addedkago"] !== undefined){
+        console.log("<system> " + datetimeNow() + " " + clientIP + ": added " + kagoname + " to " + clientname)
+    } else {
+        console.log("<system> " + datetimeNow() + " " + clientIP + ": edited " + clientname + "'s " + kagoname)
+    }
+    
+    kagos ? alldata[clientid]["kagos"] = kagos : alldata[clientid]["kagos"] = []
+    
+    allclientdata = JSON.stringify(alldata, null, 2)
+    fs.writeFileSync(`./clientData/client-data-team${team}.json`, allclientdata)
+    res.send(null)
+})
+
+app.post("/addKagoToAllteam", (req, res) => {
+    var clientIP = getIP(req)
+    var newKago = req.body
+    
+    for (var team of ["1", "2"]){
+        try{
+            var alldata = JSON.parse(fs.readFileSync(`./clientData/client-data-team${team}.json`, "utf8"))
+
+            console.log(`${datetimeNow()} ${clientIP} added ${newKago["kagoname"]} to all client(Kago)`)
+
+            for (var clientid in alldata){
+                var clientdata = alldata[clientid]
+
+                clientdata["kagos"].push(newKago)
+            }
+
+            alldata = JSON.stringify(alldata, null, 2);
+            fs.writeFileSync(`./clientData/client-data-team${team}.json`, alldata)
+        } catch(e){
+            ;
+        }        
+    }
+    res.send(true)
+})
+
+app.post("/addKagoToSingleteam", (req, res) => {
+    var data = req.body
+    var newKago = data["newKago"]
+    var team = data["team"]
+    var alldata = JSON.parse(fs.readFileSync(`./clientData/client-data-team${team}.json`, "utf8"))
+
+    for (var clientid in alldata){
+        var clientdata = alldata[clientid]
+
+        clientdata["kagos"].push(newKago)
+    }
+
+    alldata = JSON.stringify(alldata, null, 2);
+    fs.writeFileSync(`./clientData/client-data-team${team}.json`, alldata)
+
+    res.send(true)
+})
+
+app.post("/removeClient", (req, res) => {
+    var data = req.body
+    var clientIP = getIP(req)
+    var clinetid = data["clientid"]
+    var team = data["team"]
+    var alldata = JSON.parse(fs.readFileSync(`./clientData/client-data-team${team}.json`, "utf8"))
+    var nickname = alldata[clinetid]["nickName"]
+
+    delete alldata[clinetid]
+
+    console.log(`${datetimeNow()} ${clientIP} banned ${nickname}`)
+
+    alldata = JSON.stringify(alldata, null, 2);
+    fs.writeFileSync(`./clientData/client-data-team${team}.json`, alldata)
+
+    res.send(true)
+})
+
+app.post("/removeteam", (req, res) => {
+    var team = req.body["team"]
+    var IP = getIP(req)
+
+    var fp = `./clientData/client-data-team${team}.json`
+    try {
+        var fileContent = fs.readFileSync(fp, "utf8")
+        fs.writeFileSync(`./clientData-CACHE/team${team}-${datetimeForFp()}.json`, fileContent)
+        fs.unlinkSync(fp);
+        console.log(`<system> ${datetimeNow()} ${IP} removed team${team}`)
+        res.send(true)
+    } catch(e){
+        console.log(e)
+        console.log(`<system> ${datetimeNow()} ${IP} failed removing team${team}`)
+        res.send("couldn't find provided fp")
+    }
+})
+
+app.post("/test", (req, res) => {
+    res.send(true)
+})
+
+app.post("/getnickURLID", (req, res) => {
+    var getKagoJS = fs.readFileSync("./getkago.js", 'utf8')
+    var lines = getKagoJS.split("\n")
+    var URLID = lines[14].replace("const nickName_URL_ID = ", "").replace(" ", "").replace('"', '').replace(`"`, ``)
+    
+    res.send(URLID)
+})
+
+app.post("/modifynickURLID", (req, res) => {
+    var newID = req.body["newID"]
+    var getKagoJS = fs.readFileSync("./getKago.js", "utf8")
+    var lines = getKagoJS.split("\n")
+    var IP = getIP(req)
+
+    lines[14] = `const nickName_URL_ID = "${newID}"`
+
+    var updated_getKagoJS = lines.join("\n")
+
+    try {
+        fs.writeFileSync("./getKago.js", updated_getKagoJS, "utf8")
+    } catch(e){
+        res.send(false)
+        return
+    } finally {
+        console.log(`<system> ${datetimeNow()} ${IP} edited nickURLID(${newID})`)
+    }
+    
+    res.send(true)
+})
+
+app.post("/forAdminspassword", (req, res) => {
+    var password = req.body["password"]
+    var C = "itoshun"
+    var statu = false
+    var log = ""
+    var IP = getIP(req)
+    
+    password === C ? statu = true : statu = false
+    statu ? log = `<system> ${datetimeNow()} ${IP}: forAdmins.hmtl` : log = `<system> ${datetimeNow()} ${IP} missed password(${password})`
+    console.log(log)
+    res.send(statu)
+})
+
+app.post("/generateQRcode", (req, res) => {
+    var URL = req.body["URL"]
+    var n = 0
+    var path = ""
+
+    do {
+        try {
+            path = `./image/URL${n}`
+            fs.readFileSync(path)
+            n++
+        } catch(e){
+            break
+        }
+    } while (true)
+
+    QR.toDataURL(URL, (err, QRDataURL) => {
+        if (err){
+            console.log(err)
+            res.send(false)
+            return
+        }
+
+        console.log(`saved url(${URL}) image: ${QRDataURL}`)
+        res.send(QRDataURL)
+    })
 })

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inventory</title>
+</head>
+<style>
+    html{
+        height: 100%;
+    }
+
+    body{
+        margin: 0;
+        height: 100%;
+        /* 備忘録:スクロールロック */
+        overflow: hidden;
+    }
+
+    .largeImg{
+        position: absolute;
+        width: 50%;
+        height: auto;
+        max-height: 50%;
+        background-color: black;
+        border-radius: 10px;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        padding: 5%;
+    }
+
+    .largeImg>.buttons{
+        display: flex;
+        /* align-items: center; */
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .buttons button{
+        width: 25%;
+        border-radius: 5px;
+    }
+
+    .largeImg img{
+        width: 80%;
+        height: 80%;
+        object-fit: cover;
+        display: block;
+        margin: auto;
+    }
+
+    .largeImg h1{
+        margin: 0;
+        text-align: center;
+        color: white;
+    }
+
+    .gameDisplay{
+        padding: 20px;
+        width: 80%;
+        height: 80%;
+        border-radius: 10px;
+        border: 10px solid #000;
+        background-color: #e6e6e6;
+    }
+
+    .gameDisplay #inventoryBtn{
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        margin-left: auto;       
+    }
+
+    .inventoryDisplay{
+        padding: 20px;
+        width: 80%;
+        height: 80%;
+        border: 10px solid #000;
+        border-radius: 10px;
+        background-color: #e6e6e6;
+    }
+
+    .inventory{
+        padding: 0;
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 10px 10px;
+        width: 100%;
+        height: auto;
+  
+        list-style-type: none;
+        background-color: #e6e6e6;
+    }
+
+    /* .inventory>#item */
+    #item{
+        width: 100px;
+        height: 100px;
+        margin: 0;
+        border: 1px solid #000;
+        border-radius: 5px;
+        background-color: #aaa;
+    }
+
+    #item img{
+        /* #itemと同じサイズ */
+        display: block;
+        max-width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+
+    #item p{
+        position: absolute;
+        margin: 0px;
+    }
+    
+</style>
+<body>
+
+    <div class="gameDisplay">
+        <img id="inventoryBtn" 
+        src="https://1.bp.blogspot.com/-abtG2HYMsA8/UU--5kLFD0I/AAAAAAAAO_w/ta20nlofB6Y/s400/kaizoku_takara.png" 
+        onclick="showInventory()">
+    </div>
+
+    <div class="inventoryDisplay">
+        <button id="backToGameBtn">ゲーム画面に戻る</button>
+        <ul class="inventory">
+        </ul>
+    </div>
+
+    <div class="largeImg">
+        <h1 id="itemName"></h1>
+        <img id="imgSrc">
+        <div class="buttons">
+            <button id="useItemBtn">使う</button>        <!-- =>拡大画面を非表示、アイテム自体も消す-->
+            <button id="notUseItemBtn">使わない</button>    <!-- =>拡大画面を非表示-->    
+        </div>
+    </div>
+
+    <script src="inventory.js"></script>
+</body>
+</html>

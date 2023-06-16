@@ -3,20 +3,17 @@ let talking_about = void(0);
 let change_talking_count = 1;
 var itemData = void(0);
 var endsAt
-var allEndsAt
-
-//追加///////////////
-var clientID = localStorage.getItem("SetagaQuestClientID");
-
+var nextStartsAt
+var clientID = localStorage.getItem("clientID");
+var team = localStorage.getItem("team")
+console.log("team: " + team)
 
 $(function(){
-    // お客さんのブラウザがローカルストレージ使用可能か/不可の場合IPアドレスで保存
     if (typeof localStorage !== 'undefined') {
         try {
             localStorage.setItem('dummy', '1');
             if (localStorage.getItem('dummy') === '1') {
                 localStorage.removeItem('dummy');
-                // 使用可能(これより下は使用不可)
             } else {
                 clientID = "IP";
             }
@@ -28,14 +25,17 @@ $(function(){
     }
 
     console.log(clientID)
-    $.post("/getEndsAt", null).done(res => {
+    var pd = {
+        "team": team
+    }
+    $.post("/getEndsAt", pd).done(res => {
         console.log(res)
-        endsAt = res["endsAt"]
-        allEndsAt = res["allEndsAt"]
+        endsAt = res["endsAt"][team]
+        nextStartsAt = res["nextStartsAt"]
 
         if (clientID === null){
             $("#notCustomer").show();
-            var countDownDate = new Date(allEndsAt).getTime();
+            var countDownDate = new Date(nextStartsAt).getTime();
             var countdown = setInterval(function() {
                 var now = new Date().getTime();
                 var distance = countDownDate - now;
@@ -58,8 +58,13 @@ $(function(){
                 if (distance <= 120000) {
                     console.log("まもなく始まります");
                     $("#countDownNCM").css("color", "red")
-                    $("#countDownNCM").text(`まもなく始まります: 4Fに向かいましょう!`)
+                    if (days === 0 && minutes === 0 && hours === 0){
+                        $("#countDownNCM").text(`まもなく始まります: 約 ${seconds}秒 後`)
+                    } else if (hours === 0 && days === 0){
+                        $("#countDownNCM").text(`まもなく始まります: 約 ${minutes}分 ${seconds}秒 後`)
+                    }
                 }
+                
                 if (distance <= 0) {
                     clearInterval(countdown);
                     $("#countDownNCM").css("color", "red")
@@ -69,7 +74,8 @@ $(function(){
             return;
         } else {
             var p = {
-                "clientID": clientID
+                "clientID": clientID,
+                "team": team
             }
             $.post("/getNick", p).done(res => {
                 if (!(res === null)){
@@ -82,14 +88,16 @@ $(function(){
             var postData = {
                 "type": "Quiz",
                 "url_id": url_id,
-                "clientID": clientID
+                "clientID": clientID,
+                "url": window.location.href,
+                "team": team
             }
 
             $.post("/init", postData).done(res => {
                 console.log(res)
                 if(res === "not customer"){
                     $("#notCustomer").show();
-                    var countDownDate = new Date(allEndsAt).getTime();
+                    var countDownDate = new Date(nextStartsAt).getTime();
                     var countdown = setInterval(function() {
                         var now = new Date().getTime();
                         var distance = countDownDate - now;
@@ -112,8 +120,13 @@ $(function(){
                         if (distance <= 120000) {
                             console.log("まもなく始まります");
                             $("#countDownNCM").css("color", "red")
-                            $("#countDownNCM").text(`まもなく始まります: 4Fに向かいましょう!`)
+                            if (days === 0 && minutes === 0 && hours === 0){
+                                $("#countDownNCM").text(`まもなく始まります: 約 ${seconds}秒 後`)
+                            } else if (hours === 0 && days === 0){
+                                $("#countDownNCM").text(`まもなく始まります: 約 ${minutes}分 ${seconds}秒 後`)
+                            }
                         }
+
                         if (distance <= 0) {
                             clearInterval(countdown);
                             $("#countDownNCM").css("color", "red")
@@ -168,6 +181,15 @@ $(function(){
                             $("#countDown").text(`終了まで: ${hours}時間 ${minutes}分 ${seconds}秒`)
                         } else {
                             $("#countDown").text(`終了まで: ${days}日 ${hours}時間 ${minutes}分 ${seconds}秒`)
+                        }
+
+                        if (distance <= 120000){
+                            $("#countDown").css("color", "red")
+                            if (days === 0 && minutes === 0 && hours === 0){
+                                $("#countDown").text(`終了まで: ${seconds}秒 すぐに戻ってください`)
+                            } else if (hours === 0 && days === 0){
+                                $("#countDown").text(`終了まで: ${minutes}分 ${seconds}秒 そろそろ戻ってください`)
+                            }
                         }
 
                         if (distance <= 0) {

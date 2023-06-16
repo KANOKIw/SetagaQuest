@@ -1,26 +1,32 @@
-var clientID = localStorage.getItem("SetagaQuestClientID");
+var clientID = localStorage.getItem("clientID");
 var postData = {
     "clientID": clientID
 }
 var endsAt
-var allEndsAt
+var nextStartsAt
+var team = localStorage.getItem("team")
+console.log("team: " + team)
 $(function(){
     $("#notCustomer").hide()
     $("#map_layer").hide()
     var postData = {
         "type": "Quiz",
-        "clientID": clientID
+        "clientID": clientID,
+        "url": window.location.href,
+        "team": team
     }
 
-  
-        $.post("/getEndsAt", null).done(res => {
+    var pd = {
+        "team": team
+    }
+        $.post("/getEndsAt", pd).done(res => {
             console.log(res)
-            endsAt = res["endsAt"]
-            allEndsAt = res["allEndsAt"]
+            endsAt = res["endsAt"][team]
+            nextStartsAt = res["nextStartsAt"]
             $.post("/init", postData).done(res => {
                 if (res === "not customer"){
                     $("#notCustomer").show()
-                    var countDownDate = new Date(allEndsAt).getTime();
+                    var countDownDate = new Date(nextStartsAt).getTime();
                     var countdown = setInterval(function() {
                         var now = new Date().getTime();
                         var distance = countDownDate - now;
@@ -43,8 +49,13 @@ $(function(){
                         if (distance <= 120000) {
                             console.log("まもなく始まります");
                             $("#countDownNCM").css("color", "red")
-                            $("#countDownNCM").text(`まもなく始まります: 4Fに向かいましょう!`)
+                            if (days === 0 && minutes === 0 && hours === 0){
+                                $("#countDownNCM").text(`まもなく始まります: 約 ${seconds}秒 後`)
+                            } else if (hours === 0 && days === 0){
+                                $("#countDownNCM").text(`まもなく始まります: 約 ${minutes}分 ${seconds}秒 後`)
+                            }
                         }
+                        
                         if (distance <= 0) {
                             clearInterval(countdown);
                             $("#countDownNCM").css("color", "red")
@@ -62,29 +73,52 @@ $(function(){
                     $("#countDown").show()
                     
                     // クイズスコア定義
-                    let quizscore_test_poriS4 = clientdata["items"]["ポリジュース薬"]["base_damage"]
-                    console.log(quizscore_test_poriS4)
+                    try {
+                    let quizscore_test_poriS4 = clientdata["items"]["undefined2"]
 
-                    // 進行状況表示
-                    let total_4f = 0
+                    var total_4f = 0
                     if (quizscore_test_poriS4 === undefined){} else {
                         total_4f += 1
-                        console.log(total_4f)
+                        }
+                    } catch {
+                        $("#achieved_numbers_4f").text("エラー:お前は誰やねん")
+                    } finally {
+                        $("#achieved_numbers_4f").text(total_4f + "/15(決まってない)")
                     }
 
-                    
-                    // クイズスコア反映
-                    if (quizscore_test_poriS4 < 200){
-                        $("#map_4f_1_D").show()
-                    } else if (quizscore_test_poriS4 == 200){
-                        $("#map_4f_1_C").show()
-                    } else if (quizscore_test_poriS4 == 300){
-                        $("#map_4f_1_B").show()
-                    } else if (quizscore_test_poriS4 == 400){
-                        $("#map_4f_1_A").show()
-                    } 
-                    
+                    // ポップアップ表示
+                    $(function(){
+                        $('.js-modal-open').each(function(){
+                            $(this).on('click',function(){
+                                var target = $(this).data('target');
+                                var modal = document.getElementById(target);
+                                $(modal).fadeIn();
+                                return false;
+                            });
+                        });
+                        $('.js-modal-close').on('click',function(){
+                            $('.js-modal').fadeOut();
+                            return false;
+                        }); 
+                    });
+                  
+                    // ポップアップ書き換え to do kレベルごとに見た目変えるやつ
+                    $(function(){
+                        if ((clientdata["finishedevents"]).includes("4353")){
+                            $("#modal_text_4f_1").text("定義されています")
 
+                            var kago = void(0)// = undefined
+                            for (let k of clientdata["kagos"]){
+                                if (k["kagoname"] === "１ばんめっっっy"){
+                                    kago = k
+                                    break
+                                }
+                            }                                                                                                                
+                            kago ? console.log(kago["kagolevel"]) : null
+                        } else {
+                            $("#modal_text_4f_1").prepend('<img src="https://cdn.discordapp.com/icons/1101399573991268374/a_c3ede8a7240af692d46e1d786b13dbb8.gif?size=1024">')
+                        }
+                    })
 
 
                     
@@ -125,3 +159,4 @@ function countDownToend(elementID){
         }
     }, 1000);
 }
+

@@ -125,11 +125,11 @@ body{
     font-weight: bold;
 }
 
-.selection{
+/*.selection{
     padding-left: 400px;
     font-family: monospace;
     font-size: 300%;
-}
+}*/
 
 #answerSpan{
     display: flex;

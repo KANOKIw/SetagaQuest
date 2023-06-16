@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>
+        【セタガクエスト】アイテムを獲得
+    </title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="getkago.css">
+    <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"></script>
+    <script src="getkago.js"></script>
+</head>
+
+<body>
+    <div class="topcontainer">
+        <div class="topsquare">
+            <br>
+            <div id="top">
+                <img
+                  src="https://cdn.discordapp.com/icons/1101399573991268374/a_c3ede8a7240af692d46e1d786b13dbb8.gif?size=1024"
+                  width="8%">
+                <img src="image/title.png" width="50%">
+                <div id="topTitle" style="display: inline;">アイテムを獲得</div><br>
+                <div class="longUnderLine"></div><br><br>
+            </div>
+        </div>
+    </div>
+
+    <div id="notCustomer">
+        <span style="font-size: 200%;">
+            <br>
+            <div id="notCTM">
+                よく見つけましたね!<br>
+                セタガクエストはあなたのような人材を必要としています<br>
+                4Fの教室にきて手を貸してください!
+                <h3 id="countDownNCM">読み込み中...</h3>
+            </div>
+        </span>
+    </div>
+
+    <div id="claimed-item">
+        <span style="font-size: 200%;">
+            <br>
+            <div id="claimed-item-description">
+                <div id="claimed-item-description-sub">
+                    既にこのアイテムを獲得しています
+                </div>
+                <br>
+                ほかのQRコードをさがしてください!
+                <h3 id="countDownAlrClm">読み込み中...</h3>
+                <span id="font-g">
+                    <table id="goToOtherURL-claimedItem">
+                        <tr>
+                            <td>
+                                <div id="goToURL">
+                                    <a href="http://219.102.171.100:25565/map.html">マップを確認する</a>
+                                </div>
+                            </td>
+                            <td>
+                            <td>
+                                <div id="goToURL">
+                                    <a href="http://219.102.171.100:25565/inventory.html">インベントリを見る</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </span> 
+            </div> 
+        </span>
+    </div>
+
+    <div id="badRequest">
+        <span style="font-size: 500%;">
+            <br>
+            400 Bad Request
+        </span>
+        <p>(inccorect Parameter)</p>
+    </div>
+
+    <div id="whole">
+        <div id="registerNickname">
+            <br>
+            <br>
+            <div id="inputThings">
+                <form id="nicknameForm">
+                    <div id="firstFind">ようこそセタガクエストへ！<br>後ほど使うニックネームを決めてください！</div><br>
+                    <div id="firstfindDes"></div>
+                    <span id="nicked">
+                        <div id="caution"></div>
+                        <span><input type="text" id="inputNicknameZone" name="nickname" style="padding-left: 10px" size="30" placeholder="ニックネームを入力"></span><br><br>
+                        
+                        <div id="submitNickname">
+                            <button type="button">決定</button>
+                        </div>
+                    </span>
+                </form>
+                <br>
+                <table id="goToOtherURL-nick">
+                    <tr>
+                        <td>
+                            <div id="goToURL">
+                                <a href="http://219.102.171.100:25565/map.html">マップを確認する</a>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="goToURL">
+                                <a href="http://219.102.171.100:25565/inventory.html">インベントリを見る</a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="quiz">
+            <br>
+            <h2 id="countDown">読み込み中...</h2>
+            <div id="details" style="text-align: end;">
+                <h2 id="hello" style="display: inline;"></h2>
+            </div>
+            <div id="quizItemBorder">
+                <img src="image\undefined.png" id="quizImg" alt="quizImg" width="9%">
+            
+                <div id="quizItem" style="display: inline;"></div><div style="display: inline;font-size: 300%;">を獲得しよう</div>
+            </div>
+            <br>
+            <br>
+            <div id="quizDescription">
+                ※下のクイズでの正解数に応じて貰えるアイテムのステータスが変わります<br>
+            </div><br>
+            <div class="container">
+            <div class="square">
+                <div id="Quiz">
+                    <span>
+                        <div id="questionCount"></div>
+                    </span>
+                    <span>
+                        <div id="questionTitle">
+                        
+                        </div>
+                        <h1 id="previouscaution">
+                            前回クイズが途中で中断されました<br>
+                            続きから開始します<br>
+                            <h3 id="w" style="text-align: center;">※サイトを再読み込みしないでください</h2>
+                        </h1>
+                        <br>
+                       <!-- <div class="selection">
+                            <input id="selectOne" type="radio" name="answer">
+                            <label for="selectOne" id="selectionOne"></label>
+                        </div>
+                        <div class="selection"> 
+                            <input id="selectTwo" type="radio" name="answer">
+                            <label for="selectTwo" id="selectionTwo"></label>            
+                        </div>
+                        <div class="selection">
+                            <input id="selectThree" type="radio" name="answer">
+                            <label for="selectThree" id="selectionThree"></label>
+                        </div> -->
+                        <div class="card">
+                            <br>
+                            <div class="selection"  id="One">
+                              <div id="selOneC" class="inline"></div>
+                              <input id="selectOne" type="radio" name="answer">
+                              <label for="selectOne" id="selectionOne"></label>
+                            </div>
+                            <br>
+                            <div class="selection"  id="Two">
+                              <div id="selTwoC" class="inline"></div>
+                              <input id="selectTwo" type="radio" name="answer">
+                              <label for="selectTwo" id="selectionTwo"></label>
+                            </div>
+                            <br>
+                            <div class="selection"  id="Three">
+                              <div id="selThreeC" class="inline"></div>
+                              <input id="selectThree" type="radio" name="answer">
+                              <label for="selectThree" id="selectionThree"></label>
+                            </div>
+                            <link rel="stylesheet" href="import.css">  
+    <!---放置してますやん---><div class="selection" id="tof">
+                              <div id="true">
+                                <div id="selTrueC"></div>
+                                <input id="selecttrue" type="radio" name="answer">
+                                <label for="selecttrue" id="selectiontrue"></label> 
+                            </div>
+                            <br>
+                            <div id="false">
+                                <div id="selFlaseC"></div>
+                                <input id="selectfalse" type="radio" name="answer">
+                                <label for="selectfalse" id="selectionfalse"></label>
+                              </div>
+                            </div>
+                            
+                            
+
+                            <!--<label class="radio">
+                              <input id="One" type="radio" name="answer">
+                              <span class=""><span class="inner"></span></span>
+                            </label>
+                            <label class="radio">
+                              <input id="radio2" type="radio" name="answer">
+                              <span class="outer"><span class="inner"></span></span>
+                            </label>
+                            <label class="radio">
+                              <input id="radio3" type="radio" name="answer">
+                              <span class="outer"><span class="inner"></span></span>
+                            </label>
+                            <label class="radio">
+                              <input id="radio4" type="radio" name="answer">
+                              <span class="outer"><span class="inner"></span></span>
+                            </label>
+                            <label class="radio">
+                              <input id="radio5" type="radio" name="answer">
+                              <span class="outer"><span class="inner"></span></span>
+                            </label> 
+                        
+                            <link rel="stylesheet" href="import.css"> -->
+                        </div>
+            
+                        <br>
+                        <br>
+                        <h2 id="selectCaution">※答えだと思うものを選択してください</h2>
+                        <span id="answerSpan">
+                            <div class="answerBtn">
+                                <button id="answerButton" type="button">
+                                    回答する
+                                </button>
+                            </div>
+                        </span>
+                        <br>
+                        <div id="judge">
+
+                        </div>
+                        <div id="Des">
+                            解説: 
+                        </div>
+                        <div id="questionDescription"></div>
+                    </div>
+                    <br>
+                    <div class="showResult">
+                        <div id="correctCNT" class="resultCNT"></div>
+                        <div id="wrongCNT" class="resultCNT"></div>
+                        <br>
+                        <br>
+                        <div id="resultItemImgSpan">
+                            <img src="image/title.png" alt="ItemImg" id="resultItemImg">
+                        </div>
+                        <div id="claimedItem"></div>
+                        <div id="claimed-Item-Des"></div>
+                        <br>
+                        <table id="goToOtherURL">
+                            <tr>
+                                <td>
+                                    <div id="goToURL">
+                                        <a href="http://219.102.171.100:25565/map.html">マップを確認する</a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="goToURL">
+                                        <a href="http://219.102.171.100:25565/inventory.html">インベントリを見る</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

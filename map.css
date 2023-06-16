@@ -176,7 +176,7 @@ body{
     -webkit-user-drag: none;
 }
 #goToURL{
-    width:180px;
+    width:300px;
     height:80px;
     line-height:80px;
     padding-left: 70px;
@@ -226,7 +226,7 @@ body{
 #map_layer {
     width: 500px;
     margin-top: 5%;
-    margin-left: 5.8%;
+
     flex-wrap: wrap;
     display: flex;
     font-family: "ＭＳ Ｐゴシック", sans-serif;
@@ -235,7 +235,7 @@ body{
   .tab_class {
     width: 33%;
     height: 70px;
-    padding-top: 5%;
+    padding-top: 2.5%;
     background-color: rgb(196, 193, 193);
     line-height: 50px;
     font-size: 40px;
@@ -275,5 +275,72 @@ body{
   .mainmap {
   margin-top: 50px;
   width: 200%;
-  margin-left: -30%;
+  margin-left: -15%;
+  }
+
+  .markers {
+    width: 20%;
+  }
+
+  /* 達成済み祠 */
+
+  #achieved_4f {
+    font-size: 250%;
+    text-align: left;
+  }
+
+  /* ポップアップ */
+
+  *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.content{
+    margin: 0 auto;
+    padding: 40px;
+}
+.modal{
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+}
+.modal__bg{
+    background: rgba(0,0,0,0.8);
+    height: 100vh;
+    width: 100%;
+}
+.modal__content{
+    background: #a3d6ff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+}
+
+  /* 4階祠位置調整 */
+
+  #map_4f_1 {
+    margin-bottom: 130%;
+    margin-right: 0%;
+  }
+
+  #map_4f_2 {
+    margin-bottom: 133%;
+    margin-right: -65%;
+  }
+
+  #map_4f_3 {
+    margin-bottom: 15%;
+    margin-right: 23%;
+  }
+
+  #map_4f_4 {
+    margin-bottom: 15%;
+    margin-right: -13%;
   }

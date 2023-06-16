@@ -54,35 +54,35 @@
   
   
 
-  .radio {
+  .correctImg {
     display: block;
     padding-bottom: 10px;
     font-size: 18px;
     line-height: 24px;
     cursor: pointer;
   }
-  .radio:hover .inner {
+  .correctImg:hover .inner {
     transform: scale(0.5);
     opacity: 0.5;
   }
-  .radio input {
+  .correctImg input {
     height: 1px;
     width: 1px;
     opacity: 0;
   }
-  .radio input:checked + .outer .inner {
+  .correctImg input:checked + .outer .inner {
     transform: scale(1);
     opacity: 1;
   }
-  .radio input:checked + .outer {
+  .correctImg input:checked + .outer {
     border: 3px solid #f08b3b;
   }
-  .radio input:focus + .outer .inner {
+  .correctImg input:focus + .outer .inner {
     transform: scale(1);
     opacity: 1;
     background-color: #e67012;
   }
-  .radio .outer {
+  .correctImg .outer {
     height: 20px;
     width: 20px;
     display: block;
@@ -92,7 +92,7 @@
     border-radius: 50%;
     background-color: #fff;
   }
-  .radio .inner {
+  .correctImg .inner {
     transition: all 0.25s ease-in-out;
     height: 16px;
     width: 16px;
