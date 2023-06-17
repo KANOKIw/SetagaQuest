@@ -32,7 +32,10 @@ if (url_team == "null"){
     var aC = 0
     var tC = 0
     var dC = 0
+    var gC = 0
+    var jC = 0
     var intC = 0
+
     for (var s of Array.from(url_team)){
         if (s == "a"){
             aC++
@@ -49,12 +52,20 @@ if (url_team == "null"){
         if (s == "d"){
             dC++
         }
+        if (s == "g"){
+            gC++
+        }
+        if (s == "j"){
+            jC++
+        }
     }
  
     if (aC >= 2 && intC >= 2 && zC >= 2){
         team = "1"
     } else if (tC >= 2 && dC >= 2){
         team = "2"
+    } else if (gC >= 2 && jC >= 2){
+        team = "3"
     } else {
         badrequest = true
     }
@@ -205,11 +216,11 @@ $(function (){
             return;
         }
 
-        if (typeof localStorage !== 'undefined') {
+        if (typeof localStorage !== "undefined") {
             try {
-                localStorage.setItem('dummy', '1');
-                if (localStorage.getItem('dummy') === '1') {
-                    localStorage.removeItem('dummy');
+                localStorage.setItem("dummy", "1");
+                if (localStorage.getItem("dummy") === "1") {
+                    localStorage.removeItem("dummy");
                 } else {
                     clientID = "IP";
                 }

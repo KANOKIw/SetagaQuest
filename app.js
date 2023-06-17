@@ -1,6 +1,5 @@
 var express = require('express');
 const bodyParser = require('body-parser');
-const socketIo = require('socket.io');
 
 var app = express();
 app.use(express.static('./'));
@@ -10,6 +9,8 @@ const fs = require("fs");
 const { stringify } = require('querystring');
 const { isPromise } = require('util/types');
 const QR = require('qrcode');
+const axios = require('axios');
+const sharp = require('sharp');
 
 
 // urlencodedとjsonは別々に初期化する
@@ -36,6 +37,7 @@ var getIP = function (req){
 const __quizinfo_1 = JSON.parse(fs.readFileSync("./item/quizinfo-1.json", "utf8"));
 const __quizinfo_2 = JSON.parse(fs.readFileSync("./item/quizinfo-2.json", "utf8"));
 const __quizinfo_3 = JSON.parse(fs.readFileSync("./item/quizinfo-3.json", "utf8"));
+const __quizinfo_4 = JSON.parse(fs.readFileSync("./item/quizinfo-4.json", "utf8"));
 const __villagerHint_1 = JSON.parse(fs.readFileSync("./item/villagerHint-1.json", "utf8"));
 const __villagerHint_2 = JSON.parse(fs.readFileSync("./item/villagerHint-2.json", "utf8"));
 
@@ -44,6 +46,7 @@ const IDmap = {
     "4353": __quizinfo_1,
     "6800": __quizinfo_2,
     "8982": __quizinfo_3,
+    "7238": __quizinfo_4,
     "33402": __villagerHint_1,
     "35749": __villagerHint_2
 }
@@ -507,20 +510,8 @@ app.post("/forAdminspassword", (req, res) => {
 
 app.post("/generateQRcode", (req, res) => {
     var URL = req.body["URL"]
-    var n = 0
-    var path = ""
 
-    do {
-        try {
-            path = `./image/URL${n}`
-            fs.readFileSync(path)
-            n++
-        } catch(e){
-            break
-        }
-    } while (true)
-
-    QR.toDataURL(URL, (err, QRDataURL) => {
+    QR.toDataURL(URL, {width: 256}, (err, QRDataURL) => {
         if (err){
             console.log(err)
             res.send(false)

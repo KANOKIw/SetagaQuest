@@ -3,6 +3,7 @@ var allclientdata
 var clsKagolist
 var clientID = localStorage.getItem("clientID");
 var showncliendID
+var URLinputValue = ""
 
 $(window).on('load', function(){
     var e = `
@@ -10,7 +11,7 @@ $(window).on('load', function(){
         <h2 id="caution" style="color: red;"></h2>
         <input id="passwordinput" style="font-size: 200%;" placeholder=""><br><br>
         <div id="submit">
-            <button type="button" onclick="sumbitpassword()" id="submitbtn">決定</button>
+            <button type="button" onclick="sumbitpassword()" id="submitbtn">確 定</button>
         </div>
         <br>
         `
@@ -1074,7 +1075,7 @@ function QRcodeGeneratoroverlay(){
         <h2 id="editcaution"></h2><br>
 
         <h1>http://もしくはhttps://で始まるURLを入力: <br>
-        <input type="text" class="editinput" id="URLinput"><br></h1>
+        <input type="text" class="editinput" id="URLinput" value="${URLinputValue}"><br></h1>
 
         <br>
         <table>
@@ -1094,11 +1095,13 @@ function QRcodeGeneratoroverlay(){
     $(".window").append(overlay)
 }
 function QRcodeGenerator(){
-    var URL = document.getElementById("URLinput").value
+    var URL = document.getElementById("URLinput").value.replace(" ", "").replace("　", "")
     var caution = document.getElementById("caution")
     var pd = {
         "URL": URL
     }
+
+    URLinputValue = URL
 
     if (!URL || !URL.includes("http://") && !URL.includes("https://")){
         $("#editcaution").text("URLはhttp://, もしくはhttps://で始まらなければいけません")
