@@ -1,0 +1,44 @@
+{
+  "type": "剣",
+  "imageurl": "https://cdn.discordapp.com/attachments/1083021323967672421/1151146233826656366/sword.png",
+  "kagolevel": {
+    "0": "1",
+    "1": "2",
+    "2": "3",
+    "3": "4",
+    "4": "5",
+    "5": "6"
+  },
+  "questionOne": {
+    "title": "世田谷学園の校長先生の名前は？",
+    "selFirst": "山本慈訓",
+    "selSecond": "山本訓慈",
+    "selThird": "本山慈訓",
+    "answer": "山本慈訓",
+    "description": "null"
+  },
+  "questionTwo": {
+    "title": "この学校の卒業生は？",
+    "selFirst": "大野将平",
+    "selSecond": "三谷幸喜",
+    "selThird": "2人とも",
+    "answer": "2人とも",
+    "description": "大野将平さんは柔道の金メダリスト(現在は引退)として、三谷幸喜さんは脚本家として、それぞれご活躍されています。"
+  },
+  "questionThree": {
+    "title": "3×□＋4×□＝6のとき、四角に入る数字は？",
+    "selFirst": "4/7",
+    "selSecond": "5/7",
+    "selThird": "6/7",
+    "answer": "6/7",
+    "description": "四角には同じ数字が入るので、(3＋4)×□＝6となります。あとは割り算をすれば、6÷7＝6/7と答が出てきます。"
+  },
+  "questionFour": {
+    "title": "世田谷学園の生徒が世田谷学園の校門に入る時することはどれ",
+    "selFirst": "お辞儀",
+    "selSecond": "お願いしますと言う",
+    "selThird": "元気に挨拶をする",
+    "answer": "お辞儀",
+    "description": "お辞儀をして今日関わってくれる先生や色々な人への敬意と感謝を込めます。"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "type": "弓",
+  "imageurl": "https://cdn.discordapp.com/attachments/1083021323967672421/1151150855773495377/bow.png",
+  "kagolevel": {
+    "0": "1",
+    "1": "2",
+    "2": "3",
+    "3": "4",
+    "4": "5",
+    "5": "6"
+  },
+  "questionOne": {
+    "title": "東京23区で最も人口が少ない区は？",
+    "selFirst": "港区",
+    "selSecond": "豊島区",
+    "selThird": "千代田区",
+    "answer": "千代田区",
+    "description": null
+  },
+  "questionTwo": {
+    "title": "世田谷学園では数年前からポロシャツが導入されました。ではその色は何色でしょう",
+    "selFirst": "赤",
+    "selSecond": "青(紺)",
+    "selThird": "黄色",
+    "answer": "青(紺)",
+    "description": "さわって冷たく、涼しいので着心地がよいです"
+  },
+  "questionThree": {
+    "title": "この中で唯一ノーベル賞が設立されていない学問分野はどれ？",
+    "selFirst": "経済学",
+    "selSecond": "化学",
+    "selThird": "数学",
+    "answer": "数学",
+    "description": "ノーベル賞はダイナマイトの発明を発明した化学者アルフレド・ノーベルの遺書に基づき創設されました。 数学がないのは、その分野にノーベルの関心があまりなかったからである。"
+  },
+  "questionFour": {
+   "title": "世田谷学園生が中学3年時だけにあるイベントはどれ" ,
+ "selFirst": "じゃがいも収穫体験",
+ "selSecond": "近くのインターナショナルスクールとの交流",
+ "selThird": "ボランティアデー",
+ "answer": "近くのインターナショナルスクールとの交流",
+ "description": "中学3年生になると希望者で1週間ほどの交換留学が行われます"
+ }
+}

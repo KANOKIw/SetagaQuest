@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>セタガクエスト - 邪魔だ</title>
+        <link rel="stylesheet" href="grandfinal.css">
+        <script src="/socket.io/socket.io.js"></script>
+        <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+        <script src="grandfinal.js"></script>
+        <script>
+            const HEIGHT = window.innerHeight;
+            const WIDTH = window.innerWidth;
+
+            window.onload = () => {
+                var time_bar = document.getElementById("limit_bar");
+                var counter = document.getElementById("cntTim");
+                var hlBr = document.getElementsByClassName("h_b")[0];
+                $("body").css("height", HEIGHT-40+"px").css("width", HEIGHT*9/16+"px");
+                $("#miss_overlay").css("height", HEIGHT-40+"px").css("width", HEIGHT*9/16+"px");
+            };
+        </script>
+    </head>
+    <body>
+        <div id="miss_overlay" style="position: absolute; height: 100%; width: 100%;
+            background-color: rgba(255, 255, 255, 0.5); z-index: 1000; display: none; align-items: center;"
+            >
+            <div style="margin: auto; height: 100%; width: 100%; display: flex; align-items: center; justify-content: center;">
+                <div style="width: 30%; height: 20%;">
+                    <img id="mm_s" src="./effexts/miss.png" style="max-width: 100%;">
+                </div>
+            </div>
+        </div>
+        <div class="logSession" style="background-color: rgb(237, 254, 255);">
+            <div class="topcontainer" style="background-color: rgb(196, 196, 196);;">
+                <div class="topsquare">
+                    <div id="top" style="display: flex; align-items: end; position: relative;">
+                        <img src="https://cdn.discordapp.com/attachments/1083021323967672421/1126034721462300772/logo.png" style="height: 120px;">
+                        <h1 style="color: black; font-size: 40px; margin: 0; position: absolute; padding-left: 120px;">セタガクエスト</h1>
+                        <div id="topTitle" style="color: black; margin-right: 0; margin-left: auto;"></div><br>
+                    </div>
+                </div>
+                <div style="max-width: 100%; border: solid 10px green;"></div>
+            </div>
+            <div style="display: none; align-items: end; justify-content: flex-end;" id="www_loader">
+                <h3 style="margin: 0;">あなたのニックネームは</h3><h1 id="myNick" style="text-align: end; margin: 0;"></h1><h3 style="margin: 0;">です</h3>
+            </div>
+            <div class="current_player_count_">
+                <h3 class="current_player_count" style="margin: 0;"></h3>
+            </div>
+            <div class="damage_dealt_">
+                <h3 class="damage_dealt" style="margin: 0; display: none;"></h3>
+            </div>
+            <div class="sessionMessage" style="border: solid 4px black; background-color: white; margin: 20px 10px 10px 10px;">
+                <!--Message here-->
+            </div>
+            <div class="smash_item_intro" style="border: solid 4px black; background-color: white; margin: 20px 10px 10px 10px; display: none;">
+                <!--smitem here-->
+            </div>
+            <br>
+            <br>
+            <div class="startbtn__">
+                <div class="startButton">
+                    <div class="startbtn">スタート</div>
+                </div>
+            </div>
+            <div class="Wstartbtn__" style="display: none;">
+                <div class="startButton">
+                    <div class="Wstartbtn">やりなおす</div>
+                </div>
+            </div>
+        </div>
+        <div class="loader"></div>
+        <div class="mainFight" style="height: 100%;">
+            <div class="upper_">
+                <div class="upper_left">
+                    <strong style="font-size: 200%; margin-left: 40%;">NEXT</strong>
+                    <div id="attack_patterns">
+                        <div id="top_pattern" class="circled"><canvas id="next1" class="chart"></canvas></div>
+                        <div id="middle_pattern" class="circled"><canvas id="next2" class="chart"></canvas></div>
+                        <div id="bottom_pattern" class="circled"><canvas id="next3" class="chart"></canvas></div>
+                    </div>
+                    <div id="time_bar_" style="text-align: center;">
+                        <strong>TIME</strong>
+                        <div id="time_bar">
+                            <div id="limit_bar"></div>
+                        </div>
+                    </div>
+                </div>
+                <div></div>
+                <div class="upper_right" style="width: 70%; margin-left: 3%;">
+                    <div class="notImage" style="height: 30%; width: 100%; display: flex;">
+                        <div class="countTimer_" style="position: relative;">
+                            <div class="current_player_count_" style="position: absolute; margin-top: 10%; display: flex;
+                                align-items: center; justify-content: center; width: 85%;">
+                                <h3 class="current_player_count" style="margin: 0;"></h3>
+                            </div>
+                            <img src="./effexts/timer_top.png" style="max-width: 100%; max-height: 100%;">
+                        </div>
+                        <div style="display: flex;">
+                            <img src="https://cdn.discordapp.com/attachments/1083021323967672421/1148944750183977051/life.png" id="lf____">
+                            <h2 id="boss_health_num" style="position: absolute; margin: 0; margin-top: 2%; margin-left: 10%;"></h2>
+                        </div>
+                        <div class="he__">
+                            <div class="health_bar__" style="display: flex;">
+                                <img src="https://cdn.discordapp.com/attachments/1083021323967672421/1148942723341090916/heart_.png" style="max-height: 100%; z-index: 2;">
+                                <div class="hh_bas_">
+                                    <div class="h_b"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bossImageContainer" style="display: flex; align-items: flex-end; height: 70%; position: relative;">
+                        <h1 id="damage_displayer" style="position: absolute; margin-left: 45%; margin-bottom: 30%; display: none; font-size: 250%;"><!--DAMAGE AMOUNT--></h1>
+                        <img src="boss/boss.png" style="max-width: 100%;" width="100%">
+                    </div>
+                </div>
+            </div>
+            <div class="u_l_divider" style="border-top: solid 4px black; margin-top: 3%;"></div>
+            <div class="lower" style="height: 58%; position: relative;">
+                <div class="intr_boxes">
+                    <div class="weapons__">
+                        武器
+                        <div class="wpn_boxed" id="sword" style="position: relative;">
+                            <div id="sw_" style="position: absolute; color: rgb(0, 17, 255); display: flex; align-items: flex-end; justify-content: center; height: 100%; width: 100%;"><div id="sword__" style="font-size: 75%; text-align: center;">common (5)</div></div>
+                            <div id="sword_" style="position: absolute; height: 100%; width: 100%; background-color: rgba(110, 110, 110, 0.75); display: none;"></div>
+                            <img src="https://cdn.discordapp.com/attachments/1083021323967672421/1151146233826656366/sword.png" style="max-width: 100%; max-height: 100%;">
+                        </div>
+                        <div class="wpn_boxed" id="bow" style="position: relative;">
+                            <div id="bo_" style="position: absolute; color: rgb(0, 17, 255); display: flex; align-items: flex-end; justify-content: center; height: 100%; width: 100%;"><div id="bow__" style="font-size: 75%; text-align: center;">common (5)</div></div>
+                            <div id="bow_" style="position: absolute; height: 100%; width: 100%; background-color: rgba(110, 110, 110, 0.75); display: none;"></div>
+                            <img src="https://cdn.discordapp.com/attachments/1083021323967672421/1151150855773495377/bow.png" style="max-width: 100%; max-height: 100%;">
+                        </div>
+                        <div class="wpn_boxed" id="stick" style="position: relative;">
+                            <div id="st_" style="position: absolute; color: rgb(0, 17, 255); display: flex; align-items: flex-end; justify-content: center; height: 100%; width: 100%;"><div id="stick__" style="font-size: 75%; text-align: center;">common (5)</div></div>
+                            <div id="stick_" style="position: absolute; height: 100%; width: 100%; background-color: rgba(110, 110, 110, 0.75); display: none;"></div>
+                            <img src="https://cdn.discordapp.com/attachments/1083021323967672421/1151146234355130368/stick.png" style="max-width: 100%; max-height: 100%;">
+                        </div>
+                        <div class="wpn_boxed" id="magical_stick" style="position: relative; display: none;">
+                            <div id="ma_" style="position: absolute; color: rgb(0, 17, 255); display: flex; align-items: flex-end; justify-content: center; height: 100%; width: 100%;"><div id="stick__" style="font-size: 75%; text-align: center;">??? (?)</div></div>
+                            <div id="magical_stick_" style="position: absolute; height: 100%; width: 100%; background-color: rgba(110, 110, 110, 0.75); display: none;"></div>
+                            <img src="./effexts/magical_stick.png" style="max-width: 100%; max-height: 100%;">
+                        </div>
+                        <div class="wpn_boxed" id="magical_stick" style="position: relative; display: none;">
+                            <div id="ma_" style="position: absolute; color: yellow; display: flex; align-items: flex-end; justify-content: center; height: 100%; width: 100%;"><div id="stick__" style="font-size: 75%; text-align: center;">??? (?)</div></div>
+                            <div id="magical_stick_" style="position: absolute; height: 100%; width: 100%; background-color: rgba(110, 110, 110, 0.75); display: none;"></div>
+                            <img src="./effexts/magical_stick.png" style="max-width: 100%; max-height: 100%;">
+                        </div>
+                    </div>
+                    <div class="combiner__">
+                        <div class="current_pattern_viewer">
+                            <h3 id="C_W" style="text-align: center; margin: 0;"></h3>
+                            <div style="width:40%;height:50%;margin-left:30%; position: relative;">
+                                <div id="cw" style="position: absolute; width: 100%; height: 100%; display: none; justify-content: end;">
+                                    <div style="height: 100%;"><img src="./effexts/cw.png" style="max-width: 100%; max-height: 100%;filter: invert(100%);transform: rotate(10deg)"></div>
+                                </div>
+                                <div id="cww" style="position: absolute; width: 100%; height: 100%; display: none;">
+                                    <div style="height: 100%;"><img src="./effexts/cww.png" style="max-width: 100%; max-height: 100%;filter: invert(100%);transform: rotate(-10deg)"></div>
+                                </div>
+                                <canvas id="CURRENT_NODE" class="chart"></canvas>
+                            </div>
+                        </div>
+                        <div class="space_combine" id="here_combine" style="position: relative; display: flex; align-items: center;">
+                            <div id="draggable_notify" style="position: absolute; top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                -webkit-transform: translate(-50%, -50%);
+                                -ms-transform: translate(-50%, -50%); color: rgb(255, 194, 194); display: none;"><h3>ここをタップして加護をおく</h3>
+                            </div>
+                            <div id="__combine__" style="display: flex; width: 100%; height: 75%;">
+                                <!--append images-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="attribute__spam">
+                        加護
+                        <div class="attr_" style="position: relative;">
+                            <div class="attr">
+                                <div class="draggable" id="greenOrb">
+                                    <img src="./attributes/green.png" style="max-width: 100%;">
+                                </div>
+                            </div>
+                            <div class="attr">
+                                <div class="draggable" id="purpleOrb">
+                                    <img src="./attributes/purple.png" style="max-width: 100%;">
+                                </div>
+                            </div>
+                            <div class="attr">
+                                <div class="draggable" id="yellowOrb">
+                                    <img src="./attributes/yellow.png" style="max-width: 100%;">
+                                </div>
+                            </div>
+                            <div class="attr">
+                                <div class="draggable" id="redOrb">
+                                    <img src="./attributes/red.png" style="max-width: 100%;">
+                                </div>
+                            </div>
+                            <div class="attr">
+                                <div class="draggable" id="cyanOrb">
+                                    <img src="./attributes/cyan.png" style="max-width: 100%;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

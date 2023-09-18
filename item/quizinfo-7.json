@@ -1,0 +1,32 @@
+{
+  "type": "弓",
+  "imageurl": "https://cdn.discordapp.com/attachments/1083021323967672421/1151150855773495377/bow.png",
+  "kagolevel": {
+    "0": "1",
+    "1": "2",
+    "2": "3",
+    "3": "4",
+    "4": "5",
+    "5": "6"
+  },
+  "questionOne": {
+    "title": "日本人最初のノーベル賞受賞者は湯川秀樹である。〇か☓か？",
+    "tof": "true",
+    "answer": "〇",
+    "description": null
+  },
+  "questionTwo": {
+    "title": "日本の初代首相の名前は伊藤博文である。〇か☓か",
+    "tof": "true",
+    "answer": "〇",
+    "description": "明治期に活躍した政治家で、初代内閣総理大臣を始めとする日本帝国の要職を歴任しました。(１８４１年～１９０９年)"
+  },
+  "questionThree": {
+    "title": "日本の第二代首相の名前は？",
+    "selFirst": "伊藤博文",
+    "selSecond": "黒田清隆",
+    "selThird": "山縣有朋",
+    "answer": "黒田清隆",
+    "description": "〈tips！〉誤答選択肢の山縣有朋は後に総理大臣を2回(第三代と第九代)務めまし た。"
+  }
+}

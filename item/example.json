@@ -1,0 +1,52 @@
+{
+  "kagoname": "１ばんめ",
+  "imageurl": "https://cdn.discordapp.com/icons/1101399573991268374/a_c3ede8a7240af692d46e1d786b13dbb8.gif?size=1024",
+  "kagolevel": {
+    "0": "1",
+    "1": "2",
+    "2": "3",
+    "3": "4",
+    "4": "5",
+    "5": "6"
+  },
+    "questionOne": {
+        "title": null,
+        "selFirst": null,
+        "selSecond": null,
+        "selThird": null,
+        "answer": null,
+        "description": null
+    },
+    "questionTwo": {
+        "title": null,
+        "selFirst": null,
+        "selSecond": null,
+        "selThird": null,
+        "answer": null,
+        "description": null
+    },
+    "questionThree": {
+        "title": null,
+        "selFirst": null,
+        "selSecond": null,
+        "selThird": null,
+        "answer": null,
+        "description": null
+    },
+    "questionFour": {
+        "title": null,
+        "selFirst": null,
+        "selSecond": null,
+        "selThird": null,
+        "answer": null,
+        "description": null
+    },
+    "questionFive": {
+        "title": null,
+        "selFirst": null,
+        "selSecond": null,
+        "selThird": null,
+        "answer": null,
+        "description": null
+    }
+}

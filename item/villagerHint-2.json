@@ -1,0 +1,16 @@
+{
+    "ItemName": "ビスコa",
+    "ItemImgURL": "https://cdn.discordapp.com/attachments/1080464875869970463/1113063668737917084/P9CR5709-1.png",
+    "ItemStatus": {
+        "baseDmg": 10,
+        "attributes": [
+            "Dirt",
+            "x-ray"
+        ]
+    },
+    "talk_about": [
+        "manman",
+        "ouou",
+        "えへへ"
+    ]
+}

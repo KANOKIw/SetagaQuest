@@ -1,0 +1,349 @@
+<!-- 下に祠作った -->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>
+        【セタガクエスト】アイテムを獲得
+    </title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="getkago.css">
+    <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"></script>
+    <script src="getkago.js"></script>
+</head>
+
+<body>
+    <div class="topcontainer">
+        <div class="topsquare">
+            <div id="top" style="display: flex; align-items: end; position: relative;">
+                <img src="https://cdn.discordapp.com/attachments/1083021323967672421/1126034721462300772/logo.png" style="height: 120px;">
+                <h1 style="color: black; font-size: 4em; margin: 0; position: absolute; padding-left: 120px;">セタガクエスト</h1>
+                <div id="topTitle" style="color: black; margin-right: 0; margin-left: auto;"></div><br>
+            </div>
+        </div>
+        <div style="width: 98%; border: solid 10px green;"></div>
+    </div>
+    <br>
+    <div id="details" style="text-align: end;">
+        <h2 id="hello" style="display: inline;"></h2>
+    </div>
+    <br>
+    <div id="notCustomer">
+        <span style="font-size: 200%;">
+            <br>
+            <div id="notCTM">
+                <strong>このQRコードを見つけるなんてすばらしいです！</strong>
+                <br>
+                これはセタガクエストのウェブページです！<br>
+                二階の 205 教室に来て参加しましょう！
+                <h3 id="countDownNCM">読み込み中...</h3>
+            </div>
+        </span>
+    </div>
+
+    <div class="undefined_localstorage" style="border: solid 20px rgba(0, 73, 10, 0.281); 
+        background-color: rgb(255, 255, 255);
+        display: none;">
+        <div style="color: rgb(141, 0, 0); font-size: 400%;">
+            !お使いのブラウザのCookieが許可されていません。!<br>
+            <div style="display: flex; color: #000;">
+                <img src="https://cdn.discordapp.com/attachments/1101399574897250376/1149337475567865916/IMG_2594.png" style="width: 40%;">
+                <ul>
+                    <li>例: Safariの場合
+                        <ul>
+                            <li>
+                                設定からSafariを開く
+                            </li>
+                            <li>
+                                下のほうにある「すべてのCookieをブロック」をオフにする
+                            </li>
+                            <li>
+                                Safariを再起動する
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <h3 id="__er"></h3>
+    </div>
+
+    <div id="claimed-item">
+        <span style="font-size: 200%;">
+            <br>
+            <div id="claimed-item-description">
+                <div id="claimed-item-description-sub">
+                    既にこのアイテムを獲得しています
+                </div>
+                <br>
+                  ほかのQRコードをさがしてください!
+                <h3 id="countDownAlrClm">読み込み中...</h3>
+                <span id="font-g">
+                    <table id="goToOtherURL-claimedItem">
+                        <tr>
+                            <td>
+                                <div id="goToURL">
+                                    <a href="http://219.102.171.100:25565/inventory.html">インベントリ</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </span> 
+            </div> 
+        </span>
+    </div>
+
+    <div id="badRequest">
+        <br><br><br><br><br>
+        <span style="font-size: 500%;" id="statusText">
+            400 Bad Request
+        </span>
+        <h3 id="statusUnderLine"></h3>
+        <p id="statusDes">(Illegal access)</p>
+    </div>
+
+    <div id="whole">
+        <div id="registerNickname">
+            <br>
+            <br>
+            <div id="inputThings">
+                <form id="nicknameForm">
+                    <div id="firstFind" style="color: black;">ようこそセタガクエストへ！<br>使いたいニックネームを決めてください！</div><br>
+                    <div id="firstfindDes"></div>
+                    <span id="nicked">
+                        <div id="caution"></div>
+                        <span><input type="text" id="inputNicknameZone" name="nickname" style="padding-left: 10px" size="30" placeholder="ニックネームを入力"></span><br><br>
+                        
+                        <div id="submitNickname">
+                            <button type="button">決定</button>
+                        </div>
+                    </span>
+                </form>
+                <br>
+                <div id="reRegisterer" onclick="reRegister()">
+                    <button type="button">やり直す</button>
+                </div>
+                <table id="goToOtherURL-nick">
+                    <tr>
+                        <td>
+                            <div id="goToURL">
+                                <a href="/src/customers/events/inventory/" target= _blank>インベントリ</a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="iOS_caution" style="display: none;">
+            <br>
+            <br>
+            <div id="" style="background-color: white; width: auto; border: solid 5px rgb(197, 229, 147); color: black;">
+                <h1 style="color: red;">注意！</h1>
+                <h2>iPhoneを使用している皆様へ</h2>
+                <h2>QRコードを読み取った時、画面下部にSafariのマーク<img src="./items/safari.png">がある場合はそれをタップしてSafariでプレイしてください。</h2>
+            </div>
+        </div>
+        <div class="caution_rules" style="display: none;">
+            <br>
+            <br>
+            <div style="background-color: white; width: auto; border: solid 5px rgb(197, 229, 147); color: black;">
+                <h1>*注意事項</h1>
+                <h2 style="margin: 0; padding-left: 10px;">皆様に手軽に楽しく遊んでもらうためにいくつか注意事項がございます</h2>
+                <h2>
+                    <ul>
+                        <li>プライベートウィンドウを使用しないでください。
+                            <h5 style="margin: 0;">(あなたを識別できなくなり、参加できなくなってしまいます)</h5>
+                        </li>
+                        <li>履歴を削除しないでください
+                            <h5 style="margin: 0;">(データが削除される恐れがあります)</h5>
+                        </li>
+                        <li>使用する端末とブラウザは変更しないでください
+                            <h5 style="margin: 0;">(Safariで登録した場合はSafariを使い続けてください)</h5>
+                        </li>
+                        <li>歩きスマホは危険です。できる限り立ち止まってプレイしてください
+                            <h5 style="margin: 0;">(歩きスマホによるケガの責任を一切負いかねます)</h5>
+                        </li>
+                    </ul>
+                </h2>
+            </div>
+        </div>
+        <div id="quiz">
+            <br>
+            <h2 id="countDown">読み込み中...</h2>
+            <div class="quizFront" style="border: solid 10px purple; display: flex; background-color: rgb(197, 229, 147); height: 10%;">
+                <img src="image\undefined.png" id="quizImg" alt="" style="max-height: 100%;">
+            
+                <div id="quizItem" style="display: inline;"></div>
+            </div>
+            <br>
+            <br>
+            <div id="quizDescription">
+                ※下のクイズでの正解数に応じて貰えるスターの数が増えます<br>
+            </div><br>
+            <div class="container">
+            <div class="square">
+                <div id="Quiz">
+                    <span>
+                        <div id="questionCount"></div>
+                    </span>
+                    <span>
+                        <div id="questionTitle">
+                        
+                        </div>
+                        <h1 id="previouscaution">
+                            前回クイズが途中で中断されました<br>
+                            続きから開始します<br>
+                            <h3 id="w" style="text-align: center;">※サイトを再読み込みしないでください</h2>
+                        </h1>
+                        <br>
+                       <!-- <div class="selection">
+                            <input id="selectOne" type="radio" name="answer">
+                            <label for="selectOne" id="selectionOne"></label>
+                        </div>
+                        <div class="selection"> 
+                            <input id="selectTwo" type="radio" name="answer">
+                            <label for="selectTwo" id="selectionTwo"></label>            
+                        </div>
+                        <div class="selection">
+                            <input id="selectThree" type="radio" name="answer">
+                            <label for="selectThree" id="selectionThree"></label>
+                        </div> -->
+                        <div class="card" style="text-align: center;">
+                            <br>
+                            <div class="selection"  id="One"><!--style="display: flex; padding-left: 40%;"-->
+                              <div id="selOneC" class="inline"></div>
+                              <input id="selectOne" type="radio" name="answer">
+                              <label for="selectOne" id="selectionOne" class="tt_w"></label>
+                            </div>
+                            <br>
+                            <div class="selection"  id="Two">
+                              <div id="selTwoC" class="inline"></div>
+                              <input id="selectTwo" type="radio" name="answer">
+                              <label for="selectTwo" id="selectionTwo" class="tt_w"></label>
+                            </div>
+                            <br>
+                            <div class="selection"  id="Three">
+                              <div id="selThreeC" class="inline"></div>
+                              <input id="selectThree" type="radio" name="answer">
+                              <label for="selectThree" id="selectionThree" class="tt_w"></label>
+                            </div>
+                            <link rel="stylesheet" href="import.css">
+                            <div class="selection" id="tof" style="padding-left: 40%; padding-right: 45%;">
+                              <div id="true">
+                                <div id="selTrueC"></div>
+                                <input id="selecttrue" type="radio" name="answer">
+                                <label for="selecttrue" id="selectiontrue"></label> 
+                            </div>
+                            <br>
+                            <div id="false">
+                                <div id="selFlaseC"></div>
+                                <input id="selectfalse" type="radio" name="answer">
+                                <label for="selectfalse" id="selectionfalse"></label>
+                              </div>
+                            </div>
+                        </div>
+            
+                        <br>
+                        <br>
+                        <h2 id="selectCaution">※答えだと思うものを選択してください</h2>
+                        <span id="answerSpan">
+                            <div class="answerBtn">
+                                <button id="answerButton" type="button">
+                                    回答する
+                                </button>
+                            </div>
+                        </span>
+                        <br>
+                        <div id="judge">
+
+                        </div>
+                        <div id="Des">
+                            解説: 
+                        </div>
+                        <div id="questionDescription"></div>
+                    </div>
+                    <br>
+                    <div class="showResult">
+                        <div id="correctCNT" class="resultCNT"></div>
+                        <div id="wrongCNT" class="resultCNT"></div>
+                        <br>
+                        <br>
+                        <div id="resultItemImgSpan" style="max-height: 30%;">
+                            <img src="https://cdn.discordapp.com/attachments/1083021323967672421/1127415464365138081/title.png" alt="ItemImg" id="resultItemImg" sizes="(max-width: 100%) 100vw, 1280px">
+                        </div>
+                        <div id="claimedItem"></div>
+                        <div id="claimed-Item-Des"></div>
+                        <br>
+                        <div class="displayer_rarity" style="width: 50%; display: none; margin: auto; font-size: 150%;">
+                            <div class="rarity_bar">
+                                <div id="rarity_move"></div>
+                            </div>
+                            <div class="rarity_fonted" style="position: relative;">
+                                <p class="rry" style="margin-left: 0%;">common</p>
+                                <p class="rry" style="margin-left: 20%;">uncommon</p>
+                                <p class="rry" style="margin-left: 50%;">rare</p>
+                                <p class="rry" style="margin-left: 70%;">epic</p>
+                                <p class="rry" style="margin-left: 90%;">legendary</p>
+                            </div>
+                            <br>
+                            <br>
+                        </div>
+                        <table id="goToOtherURL">
+                            <tr>
+                                <td>
+                                    <div id="goToURL">
+                                        <a href="/src/customers/events/inventory/" target= _blank>マップを確認する</a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="goToURL">
+                                        <a href="/src/customers/events/inventory/" target= _blank>インベントリを見る</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ここから祠 -->
+    <div class="hokora">
+        <div class="playDisplay">
+            <div class="quizDisplay">
+
+            </div>
+    
+            <div class="optionsArea">
+                <ul id="options">
+                    <li id="red"></li>
+                    <li id="blue"></li>
+                    <li id="green"></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="clearDisplay">
+            <div class="quizDisplay">
+
+            </div>
+            <div class="starArea">
+                <ul id="stars">
+                    <li>★</li>
+                    <div class="spacer"></div>
+                    <li>★</li>
+                    <li>★</li>
+                </ul>
+            </div>
+            <div class="clearArea">
+                CLEAR
+            </div>
+        </div>
+    </div>
+</body>
+</html>

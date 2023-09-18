@@ -1,0 +1,36 @@
+{
+  "type": "弓",
+  "imageurl": "https://cdn.discordapp.com/attachments/1083021323967672421/1151150855773495377/bow.png",
+  "kagolevel": {
+    "0": "1",
+    "1": "2",
+    "2": "3",
+    "3": "4",
+    "4": "5",
+    "5": "6"
+  },
+  "questionOne": {
+    "title": "台風の勢力が「猛烈」になるのは最大風速が何mを上回ってからでしょう？",
+    "selFirst": "5.4m/s",
+    "selSecond": "30m/s",
+    "selThird": "54m/s",
+    "answer": "54m/s",
+    "description": "熱帯低気圧（Tropical Depression）: 最大風速が17メートル/秒未満。 熱帯暴風雨（Tropical Storm）: 最大風速が17メートル/秒以上33メートル/秒未満。 台風（Typhoon）またはハリケーン（Hurricane）: 最大風速が33メートル/秒以上63メートル/秒未満。 猛烈な台風（Intense Typhoon）または猛烈なハリケーン（Intense Hurricane）: 最大風速が63メートル/秒以上。と定められています"
+  },
+  "questionTwo": {
+    "title": "世田谷学園の教育理念は？",
+    "selFirst": "think & share",
+    "selSecond": "let it be",
+    "selThird": "believe your right",
+    "answer": "think & share",
+    "description": "考えて自分の考えてることを共有していくと言う意味です。"
+  },
+  "questionThree": {
+    "title": "今年から世田谷学園は新しい試みをします。その試みとは何か？",
+    "selFirst": "全生徒の教材の無償化",
+    "selSecond": "グラウンドの人工芝化",
+    "selThird": "全設備への冷暖房完備",
+    "answer": "グラウンドの人工芝化",
+    "description": "全設備への冷暖房の完備は廊下などを除いて実現しており、グラウンドは今年から人工芝化を半面ずつ実施する予定です。"
+  }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            うんち
+        </title>
+        <meta charset="UTF-8">
+        <script
+          src="https://code.jquery.com/jquery-2.2.4.min.js"
+          integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+          crossorigin="anonymous"></script>
+        <script>
+var r;
+window.onload = () => {
+    $.post("/get_grandfinal_health", null).done((s) => {
+        if (isNaN(parseInt(s)) || parseInt(s) == null){
+            $("#ew").text(parseInt(s["max"]).toLocaleString());
+            $("#ko").html(JSON.stringify(s["map"]).replace(" ", "&nbsp;"));
+        } else {
+            $("#ew").text(parseInt(s).toLocaleString());
+            $("#ko").text("表示するにはサーバーを再起動してください").css("color", "red");
+            $("#d").text("※再起動すると今朝の初期設定に戻ります").css("color", "red");
+        }
+    });
+    document.getElementById("unko").addEventListener("click", () => {
+        var v = document.getElementById("kaeru").value;
+        clearTimeout(r);
+        $.ajaxSetup({async: false});
+        $.post("/change_grandfinal_health", {
+            "value": v
+        }).done((c) => {
+            if (c == null || c.length == 0){
+                $("#unti").text("数字を入れてください").css("color", "red");
+                return;
+            }
+            var j = parseInt(c).toLocaleString();
+            $("#unti").text(`成功！(${j})`).css("color", "green");
+            $("#ew").text(j);
+        }).fail(() => {
+            $("#unti").text("失敗").css("color", "red");
+        });
+        r = setTimeout(() => {
+            $("#unti").text("人数を入力してください(人数 x 100,000になります)").css("color", "black");
+        }, 3000);
+    });
+};
+        </script>
+        <style>
+            @charset "UTF-8";
+            @font-face {
+                font-family: "untle";
+                src: url("Nosutaru-dotMPlusH-10-Regular.ttf");
+            }
+            body{
+                font-family: "untle";
+                font-size: 150%;
+            }
+        </style>
+    </head>
+    <body>
+        <input id="kaeru" type="text"><br>
+        <div>
+            <label id="unti" for="kaeru">人数を入力してください(人数 x 100,000になります)</label>
+        </div>
+        <button id="unko" type="submit" style="width: auto; height: auto;">かくてい</button>
+        <div style="display: flex;"><h4>現在のボス体力は&nbsp;</h4><h4 id="ew"></h4></div>
+        <p>ボス戦中に変えても意味ない（やめてほしいこおわいから）</p>
+        <p>サーバー再起動したら100,000にもどる</p>
+        <p>URL ID と体力のマップ (更新するにはページを再読み込みしてください)</p>
+        <p id="ko"></p>
+        <p id="d"></p>
+    </body>
+</html>

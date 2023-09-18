@@ -1,0 +1,36 @@
+{
+  "type": "剣",
+  "imageurl": "https://cdn.discordapp.com/attachments/1083021323967672421/1151146233826656366/sword.png",
+  "kagolevel": {
+    "0": "1",
+    "1": "2",
+    "2": "3",
+    "3": "4",
+    "4": "5",
+    "5": "6"
+  },
+  "questionOne": {
+    "title": "禅堂のある棟の名前は？",
+    "selFirst": "放光館",
+    "selSecond": "修道館",
+    "selThird": "観性館",
+    "answer": "観性館",
+    "description": "放光館には約230席のホール、音楽室や理科の実験室、講義室があり、修道館にはアリーナ、温水プールや武道場などがあります。"
+  },
+  "questionTwo": {
+    "title": "世田谷学園が出演したことのあるテレビのリモコン番号は？",
+    "selFirst": "2",
+    "selSecond": "4",
+    "selThird": "5",
+    "answer": "2",
+    "description": "世田谷学園物理部がNHK Eテレ「沼にハマってきいてみた」に出演しました。"
+  },
+  "questionThree": {
+    "title": "平成19年に来校したチベット仏教の法王は？",
+    "selFirst": "ダライ・ラマ第14世",
+    "selSecond": "釈迦",
+    "selThird": "空海",
+    "answer": "ダライ・ラマ第14世",
+    "description": "釈迦は仏教の開祖、空海は真言宗の開祖です。"
+  }
+}

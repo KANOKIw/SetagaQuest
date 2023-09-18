@@ -1,0 +1,145 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "dot";
+  src: url("Nosutaru-dotMPlusH-10-Regular.ttf");
+}
+
+body{
+    background-color: antiquewhite;
+    font-family: "dot";
+}
+
+#topTitle{
+    font-size: 220%;
+    font-weight: bold;
+    display: inline;
+}
+
+.topcontainer {
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+  }
+  
+  .topsquare {
+    width: 100%;
+    height: 120px;
+    background-color: rgb(196, 196, 196);
+}
+
+.items{
+    width: 100%;
+    height: 100%;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.item{
+    min-width: 120px; 
+    max-width:120px;
+    min-height: 150px; 
+    max-height: 150px;
+    border: solid black 5px; 
+    border-radius: 1rem; 
+    padding:10px; 
+    margin:10px;
+    background:white; 
+    position:relative;
+}
+
+#itemImg{
+    position:absolute; 
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.spacer{
+    width: 100%;
+    height: 85%;
+}
+
+.discription{
+    position:relative;
+    z-index:10;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    line-height: 15px;
+    flex-wrap: wrap;
+}
+
+.discription p{
+    margin:0;
+}
+
+.discription #stars{
+
+    width: 100%;
+
+    text-shadow: 
+    1px 1px 0 #000,
+     -1px 1px 0 #000,
+     1px -1px 0 #000,
+     -1px -1px 0 #000;
+    color: yellow;
+
+    display:flex;
+    justify-content: center;
+    flex-wrap:wrap;
+
+}
+
+#rarity{
+    transform:rotate(-45deg);
+} 
+
+.log-session{
+    display: none;
+}
+
+.message-container{
+    background-color: white;
+    border: solid 5px black;
+    width: auto;
+}
+
+.startbtn__{
+    display: none;
+}
+
+.startButton {
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	position: relative;
+	width: 120px;
+	margin: auto;
+	padding: 1rem 4rem;
+	font-weight: bold;
+	color: #27acd9;
+	background: #e1f3f9;
+	transition: 0.3s ease-in-out;
+}
+.startButton::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  border: 2px solid #27acd9;
+  transition: 0.2s;
+}
+.startButton:hover {
+	background: #27acd9;
+	color: #fff;
+    cursor: pointer;
+}
+.startButton:hover::before {
+  top: 0;
+  left: 0;
+}

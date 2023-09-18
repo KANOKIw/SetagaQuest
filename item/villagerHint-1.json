@@ -1,0 +1,17 @@
+{
+    "ItemName": "ビスコ",
+    "ItemImgURL": "https://cdn.discordapp.com/attachments/1080464875869970463/1113063668737917084/P9CR5709-1.png",
+    "ItemStatus": {
+        "baseDmg": 10,
+        "attributes": [
+            "Dirt",
+            "x-ray"
+        ]
+    },
+    "talk_about": [
+        "こんにちは",
+        "世田谷学園を紹介しましょう。",
+        "古くから残る地形に建てられた校舎はみんなのよりどころで清潔感にあふれています。",
+        "近々ぶっこわされて慈訓タワーが建つ予定である。"
+    ]
+}

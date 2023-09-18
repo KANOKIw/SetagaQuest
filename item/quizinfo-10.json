@@ -1,0 +1,34 @@
+{
+  "type": "弓",
+  "imageurl": "https://cdn.discordapp.com/attachments/1083021323967672421/1151150855773495377/bow.png",
+  "kagolevel": {
+    "0": "1",
+    "1": "2",
+    "2": "3",
+    "3": "4",
+    "4": "5",
+    "5": "6"
+  },
+  "questionOne": {
+    "title": "世田谷学園は甲子園に出場したことがある。〇か☓か？",
+    "tof": "true",
+    "answer": "〇",
+    "description": "1992年の明治神宮野球大会で東海大相模高校に勝利して優勝。翌年には、春の選抜高校野球大会(春の甲子園)に出場しています。"
+  },
+  "questionTwo": {
+    "title": "英語の問題です。「木曜日」はどれ？",
+    "selFirst": "Thursday",
+    "selSecond": "Tuesday",
+    "selThird": "Saturday",
+    "answer": "Thursday",
+    "description": "Monday :月曜日, Tuesday :火曜日<br>Wednesday :水曜日, Thursday :木曜日<br>Friday :金曜日, Saturday :土曜日<br>Sunday :日曜日"
+  },
+  "questionThree": {
+    "title": "所詮と所謂と所以。「しょせん」と読むのはどれでしょう？",
+    "selFirst": "所以",
+    "selSecond": "所詮",
+    "selThird": "所謂",
+    "answer": "所詮",
+    "description": "「所謂」は「いわゆる」と、「所以」は「ゆえん」と読みます。"
+  }
+}

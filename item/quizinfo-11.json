@@ -1,0 +1,36 @@
+{
+  "type": "杖",
+  "imageurl": "https://cdn.discordapp.com/attachments/1083021323967672421/1151146234355130368/stick.png",
+  "kagolevel": {
+    "0": "1",
+    "1": "2",
+    "2": "3",
+    "3": "4",
+    "4": "5",
+    "5": "6"
+  },
+  "questionOne": {
+    "title": "【難問】世田谷学園に存在しない部活を次の中から選んでください",
+    "selFirst": "バスケ部",
+    "selSecond": "バレー部",
+    "selThird": "バドミントン部",
+    "answer": "バドミントン部",
+    "description": "世田谷学園には現在、同好会も含めて38もの部活が存在しています。運動部では全国大会に何度も出場している柔道部が、文化部では「セタゴラスイッチ」でテレビにも出演した物理部がそれぞれ有名です。"
+  },
+  "questionTwo": {
+    "title": "英語の問題です。「14」の正しいスペルは？",
+    "selFirst": "fourteen",
+    "selSecond": "forteen",
+    "selThird": "forty",
+    "answer": "fourteen",
+    "description": "選択肢2番の「forteen」と言う単語は存在しません。(「for teen」なら「ティーンエイジャーに向けて」と言う意味で成立)選択肢3番の「forty」は「40」です。"
+  },
+  "questionThree": {
+    "title": "底辺5cm高さ3cmの三角形の面積を求めよ",
+    "selFirst": "15",
+    "selSecond": "7.5",
+    "selThird": "8",
+    "answer": "7.5",
+    "description": "簡単すぎましたか？まだまだこれからですよ！" 
+  }
+}

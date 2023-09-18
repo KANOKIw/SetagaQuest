@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="forAdmins.css">
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha384-rY/jv8mMhqDabXSo+UCggqKtdmBfd3qC2/KvyTDNQ6PcUJXaxK1tMepoQda4g5vB"
+  crossorigin="anonymous"></script>
+
+  <script src="forAdmins.js"></script>
+  <script src=""></script>
+
+
+<head>
+  <title>【セタガクエスト】管理者用</title>
+</head>
+
+<body>
+    <div class="topcontainer" style="user-select: none;">
+        <div class="topsquare">
+            <br>
+            <div id="top">
+                <img
+                  src="https://cdn.discordapp.com/attachments/1083021323967672421/1126034721462300772/logo.png"
+                  width="10%">
+                <img src="https://cdn.discordapp.com/attachments/1083021323967672421/1127415464365138081/title.png" width="50%">
+                <div id="topTitle" style="display: inline;">for Admins <a id="personal-settings"> ≡</a></div><br>
+                <div class="longUnderLine"></div><br><br>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    
+    <div id="password">
+
+    </div>
+
+    <div id="forbidden">
+      <span style="font-size: 500%;">
+          <br>
+          403 Forbidden
+      </span>
+      <p>(no permissions)
+        <br>
+          <p id="forbidden-reason">
+            refresh this page to continue...
+          </p>
+        </p>
+    </div>
+
+    <div id="main">
+      <h1 id="loading">Loading...</h1>
+      <h2 id="ranking_A_BossFight" class="bordered">読み込み中...</h2>
+      <h2 id="nextRanking_A_StartsAt" class="bordered">読み込み中...</h2>
+      <h2 id="ranking_B_BossFight" class="bordered">読み込み中...</h2>
+      <h2 id="nextRanking_B_StartsAt" class="bordered">読み込み中...</h2>
+      <h2 id="freeBossFight" class="bordered">読み込み中...</h2>
+      <h2 id="nextFreeStartsAt" class="bordered">読み込み中...</h2>
+
+      <div id="showclientdata">
+        
+      </div>
+
+      <div id="overlay">
+          <div class="window">
+            
+          </div>
+      </div>
+    </div>
+</body>
+</html>

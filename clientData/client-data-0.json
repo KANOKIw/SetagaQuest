@@ -1,0 +1,1514 @@
+{
+  "105498": {
+    "nickName": "るな",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "146139": {
+    "nickName": "そうえい",
+    "kagos": [
+      {
+        "claimed": "[2023-08-18 14:41:28]"
+      }
+    ],
+    "items": [
+      {
+        "type": "弓",
+        "stars": 15,
+        "rarity": "common"
+      },
+      {
+        "type": "杖",
+        "stars": 8,
+        "rarity": "common"
+      },
+      {
+        "type": "剣",
+        "stars": "3",
+        "rarity": "common"
+      }
+    ],
+    "finishedevents": [
+      "445228676",
+      "10923190390",
+      "4353125532"
+    ],
+    "finishedmbosses": [
+      "1299342163"
+    ],
+    "scannedMISSIONS": [
+      "iuijh489ujkisd",
+      "oijvAIDJO23"
+    ],
+    "slainObstacle": false,
+    "just_scans": [
+      "29737892189y7",
+      "8779huwdhui"
+    ]
+  },
+  "284582": {
+    "nickName": "陸斗",
+    "kagos": [],
+    "items": [
+      {
+        "type": "杖",
+        "stars": "1",
+        "rarity": "common"
+      },
+      {
+        "type": "剣",
+        "stars": "3",
+        "rarity": "common"
+      }
+    ],
+    "finishedevents": [
+      "223455323",
+      "4353125532"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "402877": {
+    "nickName": "Itsuki",
+    "kagos": [],
+    "items": [
+      {
+        "type": "杖",
+        "stars": "2",
+        "rarity": "common"
+      }
+    ],
+    "finishedevents": [
+      "223455323"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "528585": {
+    "nickName": "わきお",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "622047": {
+    "nickName": "blue",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "691497": {
+    "nickName": "ナス",
+    "kagos": [],
+    "items": [
+      {
+        "type": "弓",
+        "stars": 9,
+        "rarity": "common"
+      },
+      {
+        "type": "剣",
+        "stars": "4",
+        "rarity": "common"
+      }
+    ],
+    "finishedevents": [
+      "445228676",
+      "6215241800"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": [
+      "29737892189y7"
+    ]
+  },
+  "726243": {
+    "nickName": "ちさと",
+    "kagos": [],
+    "items": [
+      {
+        "type": "弓",
+        "stars": 16,
+        "rarity": "common"
+      },
+      {
+        "type": "杖",
+        "stars": 29,
+        "rarity": "rare"
+      }
+    ],
+    "finishedevents": [
+      "223455323",
+      "465781111",
+      "445228676",
+      "776933235"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [
+      "iuijh489ujkisd",
+      "oijvAIDJO23"
+    ],
+    "slainObstacle": false,
+    "just_scans": [
+      "29737892189y7",
+      "8779huwdhui",
+      "2838793871"
+    ],
+    "can_claim_rewards": true
+  },
+  "780175": {
+    "nickName": "ゆう",
+    "kagos": [
+      {
+        "claimed": "[2023-08-18 14:08:03]"
+      },
+      {
+        "claimed": "[2023-08-18 14:16:53]"
+      }
+    ],
+    "items": [
+      {
+        "type": "杖",
+        "stars": 18,
+        "rarity": "uncommon"
+      },
+      {
+        "type": "弓",
+        "stars": 14,
+        "rarity": "uncommon"
+      },
+      {
+        "type": "剣",
+        "stars": 7,
+        "rarity": "common"
+      }
+    ],
+    "finishedevents": [
+      "10923190390",
+      "445228676",
+      "776933235",
+      "99324682",
+      "4353125532"
+    ],
+    "finishedmbosses": [
+      "1299342163",
+      "374263792"
+    ],
+    "scannedMISSIONS": [
+      "oijvAIDJO23",
+      "iuijh489ujkisd",
+      "iu4n90a9f0",
+      "jsiujhkkSADA"
+    ],
+    "slainObstacle": false,
+    "just_scans": [
+      "2838793871",
+      "29737892189y7",
+      "8779huwdhui"
+    ],
+    "can_claim_rewards": true
+  },
+  "859452": {
+    "nickName": "オオタニ",
+    "kagos": [
+      {
+        "claimed": "[2023-08-18 12:00:46]"
+      },
+      {
+        "claimed": "[2023-08-18 12:20:51]"
+      }
+    ],
+    "items": [
+      {
+        "type": "剣",
+        "stars": 9,
+        "rarity": "common"
+      },
+      {
+        "type": "弓",
+        "stars": "19",
+        "rarity": "uncommon"
+      },
+      {
+        "type": "杖",
+        "stars": "14",
+        "rarity": "uncommon"
+      }
+    ],
+    "finishedevents": [
+      "99324682",
+      "776933235",
+      "6215241800",
+      "23635467",
+      "223455323"
+    ],
+    "finishedmbosses": [
+      "091234420",
+      "1299342163"
+    ],
+    "scannedMISSIONS": [
+      "iuijh489ujkisd",
+      "oijvAIDJO23"
+    ],
+    "slainObstacle": false,
+    "just_scans": [
+      "2838793871",
+      "8779huwdhui",
+      "29737892189y7"
+    ]
+  },
+  "1267440": {
+    "nickName": "typedeferred",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "1396647": {
+    "nickName": "ハル",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "1462440": {
+    "nickName": "blue",
+    "kagos": [
+      {
+        "claimed": "[2023-08-18 14:04:04]"
+      },
+      {
+        "claimed": "[2023-08-18 14:15:21]"
+      }
+    ],
+    "items": [
+      {
+        "type": "杖",
+        "stars": 19,
+        "rarity": "uncommon"
+      },
+      {
+        "type": "弓",
+        "stars": 13,
+        "rarity": "uncommon"
+      },
+      {
+        "type": "剣",
+        "stars": "10",
+        "rarity": "uncommon"
+      }
+    ],
+    "finishedevents": [
+      "10923190390",
+      "445228676",
+      "776933235",
+      "23635467",
+      "4353125532",
+      "6215241800"
+    ],
+    "finishedmbosses": [
+      "1299342163",
+      "374263792"
+    ],
+    "scannedMISSIONS": [
+      "oijvAIDJO23",
+      "iuijh489ujkisd",
+      "iu4n90a9f0",
+      "jsiujhkkSADA"
+    ],
+    "slainObstacle": false,
+    "just_scans": [
+      "2838793871",
+      "29737892189y7",
+      "8779huwdhui"
+    ]
+  },
+  "1579350": {
+    "nickName": "きいろ",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "1831602": {
+    "nickName": "A",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [
+      "iu4n90a9f0",
+      "jsiujhkkSADA",
+      "oijvAIDJO23"
+    ],
+    "slainObstacle": false,
+    "just_scans": [],
+    "can_claim_rewards": true
+  },
+  "1967514": {
+    "nickName": "ゆう",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [
+      "iu4n90a9f0"
+    ],
+    "slainObstacle": false,
+    "just_scans": [
+      "2838793871"
+    ]
+  },
+  "2258025": {
+    "nickName": "とも",
+    "kagos": [],
+    "items": [
+      {
+        "type": "杖",
+        "stars": "4",
+        "rarity": "common"
+      }
+    ],
+    "finishedevents": [
+      "223455323"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [
+      "iu4n90a9f0"
+    ],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "2428197": {
+    "nickName": "ねこ",
+    "kagos": [
+      {
+        "claimed": "[2023-08-18 14:33:44]"
+      }
+    ],
+    "items": [
+      {
+        "type": "剣",
+        "stars": 13,
+        "rarity": "uncommon"
+      },
+      {
+        "type": "杖",
+        "stars": 18,
+        "rarity": "epic"
+      },
+      {
+        "type": "弓",
+        "stars": 8,
+        "rarity": "common"
+      }
+    ],
+    "finishedevents": [
+      "223455323",
+      "4353125532",
+      "6215241800",
+      "776933235",
+      "10923190390",
+      "465781111",
+      "445228676"
+    ],
+    "finishedmbosses": [
+      "1299342163"
+    ],
+    "scannedMISSIONS": [
+      "iuijh489ujkisd",
+      "oijvAIDJO23"
+    ],
+    "slainObstacle": false,
+    "just_scans": [
+      "29737892189y7"
+    ]
+  },
+  "2684962": {
+    "nickName": "そす",
+    "kagos": [],
+    "items": [
+      {
+        "type": "剣",
+        "stars": "5",
+        "rarity": "common"
+      },
+      {
+        "type": "杖",
+        "stars": "4",
+        "rarity": "common"
+      },
+      {
+        "type": "弓",
+        "stars": "22",
+        "rarity": "legendary"
+      }
+    ],
+    "finishedevents": [
+      "4353125532",
+      "61776532",
+      "776933235",
+      "99324682",
+      "3126787",
+      "23635467",
+      "445228676"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": true,
+    "just_scans": []
+  },
+  "2729938": {
+    "nickName": "がくと",
+    "kagos": [
+      {
+        "claimed": "[2023-08-18 11:31:18]"
+      }
+    ],
+    "items": [
+      {
+        "type": "剣",
+        "stars": "3",
+        "rarity": "common"
+      },
+      {
+        "type": "杖",
+        "stars": "8",
+        "rarity": "rare"
+      },
+      {
+        "type": "弓",
+        "stars": "8",
+        "rarity": "uncommon"
+      }
+    ],
+    "finishedevents": [
+      "99324682",
+      "4353125532",
+      "223455323",
+      "10923190390",
+      "776933235",
+      "61776532"
+    ],
+    "finishedmbosses": [
+      "091234420"
+    ],
+    "scannedMISSIONS": [
+      "jsiujhkkSADA"
+    ],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "2850262": {
+    "nickName": "Yagi",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "3167856": {
+    "nickName": "Pray",
+    "kagos": [],
+    "items": [
+      {
+        "type": "弓",
+        "stars": "5",
+        "rarity": "common"
+      }
+    ],
+    "finishedevents": [
+      "61776532"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [
+      "iu4n90a9f0"
+    ],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "3392947": {
+    "nickName": "りんか",
+    "kagos": [],
+    "items": [
+      {
+        "type": "杖",
+        "stars": "2",
+        "rarity": "common"
+      }
+    ],
+    "finishedevents": [
+      "223455323"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [
+      "iu4n90a9f0"
+    ],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "3486751": {
+    "nickName": "睦",
+    "kagos": [
+      {
+        "claimed": "[2023-08-18 14:16:58]"
+      },
+      {
+        "claimed": "[2023-08-18 14:36:41]"
+      }
+    ],
+    "items": [
+      {
+        "type": "剣",
+        "stars": 14,
+        "rarity": "common"
+      },
+      {
+        "type": "杖",
+        "stars": 19,
+        "rarity": "uncommon"
+      },
+      {
+        "type": "弓",
+        "stars": "22",
+        "rarity": "rare"
+      }
+    ],
+    "finishedevents": [
+      "223455323",
+      "6215241800",
+      "61776532",
+      "23635467",
+      "776933235",
+      "445228676"
+    ],
+    "finishedmbosses": [
+      "374263792",
+      "1299342163"
+    ],
+    "scannedMISSIONS": [
+      "oijvAIDJO23",
+      "iuijh489ujkisd"
+    ],
+    "slainObstacle": false,
+    "just_scans": [
+      "2838793871",
+      "8779huwdhui",
+      "29737892189y7"
+    ]
+  },
+  "3706280": {
+    "nickName": "s",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": [
+      "2838793871"
+    ]
+  },
+  "3760510": {
+    "nickName": "コウキ",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "4080380": {
+    "nickName": "みかん",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "4345231": {
+    "nickName": "こくむつ",
+    "kagos": [],
+    "items": [
+      {
+        "type": "杖",
+        "stars": 13,
+        "rarity": "common"
+      }
+    ],
+    "finishedevents": [
+      "223455323"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [
+      "iuijh489ujkisd"
+    ],
+    "slainObstacle": false,
+    "just_scans": [
+      "2838793871",
+      "29737892189y7"
+    ]
+  },
+  "4522768": {
+    "nickName": "さとろ",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": [
+      "2838793871"
+    ]
+  },
+  "4557464": {
+    "nickName": "ゆい",
+    "kagos": [],
+    "items": [
+      {
+        "type": "弓",
+        "stars": 16,
+        "rarity": "common"
+      },
+      {
+        "type": "杖",
+        "stars": 29,
+        "rarity": "rare"
+      }
+    ],
+    "finishedevents": [
+      "223455323",
+      "465781111",
+      "445228676",
+      "776933235"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [
+      "iuijh489ujkisd",
+      "oijvAIDJO23"
+    ],
+    "slainObstacle": false,
+    "just_scans": [
+      "29737892189y7",
+      "8779huwdhui",
+      "2838793871"
+    ],
+    "can_claim_rewards": true
+  },
+  "4575648": {
+    "nickName": "ゆい",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "4668001": {
+    "nickName": "かいり",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "4749650": {
+    "nickName": "めいぷる",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "4800880": {
+    "nickName": "マルセイ",
+    "kagos": [],
+    "items": [
+      {
+        "type": "剣",
+        "stars": "4",
+        "rarity": "common"
+      }
+    ],
+    "finishedevents": [
+      "6215241800"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "4907422": {
+    "nickName": "東山",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [
+      "oijvAIDJO23",
+      "iuijh489ujkisd"
+    ],
+    "slainObstacle": false,
+    "just_scans": [],
+    "can_claim_rewards": true
+  },
+  "5124784": {
+    "nickName": "pi",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "5885886": {
+    "nickName": "よねち",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "6368223": {
+    "nickName": "ともき",
+    "kagos": [
+      {
+        "claimed": "[2023-08-18 13:28:54]"
+      }
+    ],
+    "items": [
+      {
+        "type": "剣",
+        "stars": 10,
+        "rarity": "common"
+      },
+      {
+        "type": "杖",
+        "stars": 22,
+        "rarity": "rare"
+      },
+      {
+        "type": "弓",
+        "stars": "15",
+        "rarity": "uncommon"
+      }
+    ],
+    "finishedevents": [
+      "223455323",
+      "6215241800",
+      "465781111",
+      "445228676",
+      "10923190390",
+      "99324682"
+    ],
+    "finishedmbosses": [
+      "1299342163"
+    ],
+    "scannedMISSIONS": [
+      "iuijh489ujkisd",
+      "oijvAIDJO23"
+    ],
+    "slainObstacle": false,
+    "just_scans": [
+      "2838793871",
+      "29737892189y7"
+    ]
+  },
+  "6507519": {
+    "nickName": "あやの",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "6568765": {
+    "nickName": "かのき",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": true,
+    "just_scans": []
+  },
+  "6698504": {
+    "nickName": "はやけん",
+    "kagos": [],
+    "items": [
+      {
+        "type": "杖",
+        "stars": "3",
+        "rarity": "common"
+      }
+    ],
+    "finishedevents": [
+      "223455323"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": [
+      "2838793871"
+    ]
+  },
+  "6888374": {
+    "nickName": "shin",
+    "kagos": [
+      {
+        "claimed": "[2023-08-18 14:14:59]"
+      }
+    ],
+    "items": [
+      {
+        "type": "杖",
+        "stars": 17,
+        "rarity": "uncommon"
+      },
+      {
+        "type": "剣",
+        "stars": "8",
+        "rarity": "uncommon"
+      },
+      {
+        "type": "弓",
+        "stars": "16",
+        "rarity": "rare"
+      }
+    ],
+    "finishedevents": [
+      "10923190390",
+      "445228676",
+      "776933235",
+      "23635467",
+      "4353125532",
+      "6215241800",
+      "99324682"
+    ],
+    "finishedmbosses": [
+      "1299342163"
+    ],
+    "scannedMISSIONS": [
+      "oijvAIDJO23",
+      "iuijh489ujkisd",
+      "iu4n90a9f0"
+    ],
+    "slainObstacle": false,
+    "just_scans": [
+      "2838793871",
+      "29737892189y7",
+      "8779huwdhui"
+    ]
+  },
+  "7057379": {
+    "nickName": "sh",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": [
+      "2838793871",
+      "8779huwdhui"
+    ]
+  },
+  "7122394": {
+    "nickName": "ぴ",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": true,
+    "just_scans": []
+  },
+  "7174840": {
+    "nickName": "わきお",
+    "kagos": [],
+    "items": [
+      {
+        "type": "弓",
+        "stars": "4",
+        "rarity": "common"
+      }
+    ],
+    "finishedevents": [
+      "61776532"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [
+      "iu4n90a9f0"
+    ],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "7270385": {
+    "nickName": "なな",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "7334493": {
+    "nickName": "伴",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "7435927": {
+    "nickName": "やま",
+    "kagos": [
+      {
+        "claimed": "[2023-08-18 10:26:45]"
+      }
+    ],
+    "items": [
+      {
+        "type": "弓",
+        "stars": 9,
+        "rarity": "common"
+      },
+      {
+        "type": "杖",
+        "stars": 7,
+        "rarity": "common"
+      },
+      {
+        "type": "剣",
+        "stars": "4",
+        "rarity": "common"
+      }
+    ],
+    "finishedevents": [
+      "23635467",
+      "10923190390",
+      "6215241800"
+    ],
+    "finishedmbosses": [
+      "091234420"
+    ],
+    "scannedMISSIONS": [
+      "oijvAIDJO23"
+    ],
+    "slainObstacle": false,
+    "just_scans": [
+      "29737892189y7"
+    ]
+  },
+  "7712471": {
+    "nickName": "荒井",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "7821536": {
+    "nickName": "かず",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [
+      "oijvAIDJO23",
+      "iuijh489ujkisd"
+    ],
+    "slainObstacle": false,
+    "just_scans": [],
+    "can_claim_rewards": true
+  },
+  "8026332": {
+    "nickName": "T.M.",
+    "kagos": [],
+    "items": [
+      {
+        "type": "剣",
+        "stars": "17",
+        "rarity": "legendary"
+      },
+      {
+        "type": "弓",
+        "stars": "16",
+        "rarity": "legendary"
+      },
+      {
+        "type": "杖",
+        "stars": "18",
+        "rarity": "legendary"
+      }
+    ],
+    "finishedevents": [
+      "223455323",
+      "821837823",
+      "776933235",
+      "4353125532",
+      "6215241800",
+      "89854357132",
+      "723832236",
+      "329236320",
+      "61776532",
+      "99324682",
+      "3126787",
+      "23635467",
+      "445228676",
+      "465781111",
+      "10923190390"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [
+      "iu4n90a9f0",
+      "jsiujhkkSADA"
+    ],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "8210979": {
+    "nickName": "はるぴー",
+    "kagos": [],
+    "items": [
+      {
+        "type": "剣",
+        "stars": "2",
+        "rarity": "common"
+      },
+      {
+        "type": "杖",
+        "stars": "7",
+        "rarity": "uncommon"
+      }
+    ],
+    "finishedevents": [
+      "223455323",
+      "6215241800",
+      "776933235"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": [
+      "2838793871"
+    ]
+  },
+  "8299217": {
+    "nickName": "エミリー",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "8356200": {
+    "nickName": "さくた",
+    "kagos": [],
+    "items": [
+      {
+        "type": "弓",
+        "stars": "7",
+        "rarity": "uncommon"
+      },
+      {
+        "type": "杖",
+        "stars": "13",
+        "rarity": "rare"
+      }
+    ],
+    "finishedevents": [
+      "223455323",
+      "776933235",
+      "445228676",
+      "61776532",
+      "821837823"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": [
+      "8779huwdhui"
+    ]
+  },
+  "8449082": {
+    "nickName": "Pochi",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "8500900": {
+    "nickName": "るなるな",
+    "kagos": [
+      {
+        "claimed": "[2023-08-18 14:07:07]"
+      }
+    ],
+    "items": [
+      {
+        "type": "杖",
+        "stars": 16,
+        "rarity": "uncommon"
+      },
+      {
+        "type": "弓",
+        "stars": "13",
+        "rarity": "uncommon"
+      },
+      {
+        "type": "剣",
+        "stars": "5",
+        "rarity": "common"
+      }
+    ],
+    "finishedevents": [
+      "10923190390",
+      "445228676",
+      "776933235",
+      "23635467",
+      "4353125532"
+    ],
+    "finishedmbosses": [
+      "1299342163"
+    ],
+    "scannedMISSIONS": [
+      "oijvAIDJO23",
+      "iuijh489ujkisd",
+      "iu4n90a9f0"
+    ],
+    "slainObstacle": false,
+    "just_scans": [
+      "2838793871",
+      "29737892189y7",
+      "8779huwdhui"
+    ]
+  },
+  "8518461": {
+    "nickName": "けんしまん",
+    "kagos": [],
+    "items": [
+      {
+        "type": "剣",
+        "stars": "3",
+        "rarity": "common"
+      },
+      {
+        "type": "弓",
+        "stars": "2",
+        "rarity": "common"
+      }
+    ],
+    "finishedevents": [
+      "6215241800",
+      "61776532"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "8603159": {
+    "nickName": "さかなや",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "8690936": {
+    "nickName": "ウエノ",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [
+      "iu4n90a9f0",
+      "jsiujhkkSADA"
+    ],
+    "slainObstacle": false,
+    "just_scans": [],
+    "can_claim_rewards": true
+  },
+  "8718856": {
+    "nickName": "か",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "8730155": {
+    "nickName": "ゆい",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "8856379": {
+    "nickName": "リュウタ",
+    "kagos": [],
+    "items": [
+      {
+        "type": "杖",
+        "stars": "3",
+        "rarity": "common"
+      },
+      {
+        "type": "弓",
+        "stars": "7",
+        "rarity": "uncommon"
+      }
+    ],
+    "finishedevents": [
+      "223455323",
+      "23635467",
+      "61776532"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [
+      "iuijh489ujkisd"
+    ],
+    "slainObstacle": false,
+    "just_scans": [
+      "2838793871"
+    ]
+  },
+  "8967347": {
+    "nickName": "りゆ",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "9013091": {
+    "nickName": "こうたろう",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "9063107": {
+    "nickName": "sh",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "9090985": {
+    "nickName": "めい",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": [
+      "8779huwdhui"
+    ]
+  },
+  "9118011": {
+    "nickName": "奏",
+    "kagos": [],
+    "items": [],
+    "finishedevents": [],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "9133334": {
+    "nickName": "なな",
+    "kagos": [],
+    "items": [
+      {
+        "type": "杖",
+        "stars": "4",
+        "rarity": "common"
+      }
+    ],
+    "finishedevents": [
+      "223455323"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [
+      "iu4n90a9f0"
+    ],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "9683336": {
+    "nickName": "りょう",
+    "kagos": [],
+    "items": [
+      {
+        "type": "杖",
+        "stars": "3",
+        "rarity": "common"
+      }
+    ],
+    "finishedevents": [
+      "776933235"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": [
+      "2838793871"
+    ]
+  },
+  "9685879": {
+    "nickName": "バクシトウフ",
+    "kagos": [],
+    "items": [
+      {
+        "type": "杖",
+        "stars": "4",
+        "rarity": "common"
+      },
+      {
+        "type": "弓",
+        "stars": "4",
+        "rarity": "common"
+      }
+    ],
+    "finishedevents": [
+      "776933235",
+      "23635467"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [
+      "iuijh489ujkisd"
+    ],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "9719490": {
+    "nickName": "ユーリ",
+    "kagos": [],
+    "items": [
+      {
+        "type": "弓",
+        "stars": "4",
+        "rarity": "common"
+      }
+    ],
+    "finishedevents": [
+      "23635467"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [
+      "iuijh489ujkisd"
+    ],
+    "slainObstacle": false,
+    "just_scans": []
+  },
+  "9944552": {
+    "nickName": "コメ",
+    "kagos": [],
+    "items": [
+      {
+        "type": "剣",
+        "stars": "15",
+        "rarity": "epic"
+      },
+      {
+        "type": "杖",
+        "stars": "17",
+        "rarity": "legendary"
+      },
+      {
+        "type": "弓",
+        "stars": "22",
+        "rarity": "legendary"
+      }
+    ],
+    "finishedevents": [
+      "4353125532",
+      "6215241800",
+      "723832236",
+      "329236320",
+      "61776532",
+      "99324682",
+      "3126787",
+      "23635467",
+      "776933235",
+      "465781111",
+      "223455323",
+      "10923190390",
+      "821837823",
+      "445228676"
+    ],
+    "finishedmbosses": [],
+    "scannedMISSIONS": [],
+    "slainObstacle": false,
+    "just_scans": []
+  }
+}

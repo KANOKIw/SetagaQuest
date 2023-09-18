@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@800&display=swap');
+
+@font-face {
+    font-family: "dot";
+    src: url("Nosutaru-dotMPlusH-10-Regular.ttf");
+}
+@font-face {
+    font-family: "undertale";
+    src: url("undertale-damage.ttf");
+}
+
+body{
+    border: solid 5px black;
+    user-select: none;
+    font-family: "dot";
+    animation: fade 1s;
+    touch-action: none;
+    display: none;
+    background-image: url("https://www.machipara.com/wp-content/uploads/hoshizora2-1440-3200.jpg");
+    margin: auto;
+    /* for customers better performance */
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+img{
+    user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.ramp{
+    animation: red_ramp 0.5s;
+}
+
+@keyframes red_ramp {
+    0%{
+        background-color: rgba(255, 46, 46, 0.9);
+    }
+    100%{
+        background-color: rgba(255, 46, 46, 0.1)
+    }
+}
+
+@keyframes fade {
+    100%{background-color: white;}
+    50%{background-color: black;}
+    0%{background-color: black;}
+}
+
+.mainFight{
+    background-color: rgb(180, 224, 139);
+}
+
+.upper_{
+    display: flex;
+    height: 40%;
+    position: relative;
+}
+
+.upper_left{
+    display: inline;
+    width: 30%;
+    position: relative;
+}
+
+.circled{
+    width: 45%;
+    height: 25%;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.countTimer_{
+    width: 50%;
+    height: 70%;
+}
+
+.tim__{
+    margin-top: 5%;
+    margin-left: 5%;
+    border-radius: 40% 40% 50% 40%/30% 50% 50% 50%;
+    border: solid 3px black;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.he__{
+    border: solid 4px black;
+    width: 50%;
+    margin-left: 0%;
+    margin-top: 5%;
+    max-height: 50%;
+    border-bottom-left-radius: 40%;
+}
+
+.health_bar__{
+    width: 90%;
+    height: 50%;
+    margin: auto;
+    margin-top: 7%;
+    position: relative;
+}
+
+.hh_bas_{
+    border: solid 2px black;
+    height: 70%;
+    width: 85%;
+    position: absolute;
+    margin-left: 12%;
+    margin-top: 2%;
+    z-index: 1;
+    overflow: hidden;
+    border-bottom-right-radius: 20px;
+}.h_b{
+    background-color: rgb(0, 102, 0);
+    height: 100%;
+    margin-left: auto;
+}
+
+#lf____{
+    color: rgb(27, 27, 255);
+    position: absolute;
+    margin-left: 25%;
+    margin-top: 1%;
+}
+
+#attack_patterns{
+    margin-top: 5%;
+    margin-left: 25%;
+    border: solid 4px black;
+    border-top-left-radius: 15%;
+    width: 75%;
+    height: 50%;
+}
+
+#time_bar_{
+    margin-top: 10%;
+    margin-left: 38%;
+    border: solid 3px black;
+    width: 50%;
+    height: 30%;
+}
+
+#time_bar{
+    border: solid 3px black;
+    border-top: none;
+    height: 70%;
+    margin: 5% 20% 10% 20%;
+    display: flex;
+    align-items: flex-end;
+}
+
+#limit_bar{
+    width: 100%;
+    height: 100%;
+    border: solid 0px pink;
+    background-color: pink;
+}
+
+.intr_boxes{
+    height: 100%;
+    display: flex;
+    position: relative;
+}
+
+.weapons__{
+    height: 100%;
+    width: 25%;
+    max-height: 100%;
+    border-right: solid 4px black;
+    font-size: 25px;
+    text-align: center;
+}
+
+.wpn_boxed{
+    border: solid 2px black;
+    height: 19%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+}
+
+.combiner__{
+    width: 50%;
+    border-right: solid 4px black;
+}
+
+.combiner_x{
+    margin-top: 15%;
+    height: 82%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.draggable{
+    display: flex;
+    justify-content: center;
+}
+
+.combiner_y{
+    border: solid 4px black;
+    height: 33.3%;
+}.combiner{
+    border: solid 4px black;
+    border-top: none;
+    height: 33.3%;
+}
+
+.attribute__spam{
+    height: 100%;
+    width: 25%;
+    font-size: 25px;
+    text-align: center;
+}
+
+.attr_{
+    height: 100%;
+    margin: auto;
+    width: 80%;
+}
+
+.attr{
+    margin: auto;
+    height: 17.3%;
+    width: 80%;
+    max-width: 100%;
+    display: block;
+}
+
+.dragging{
+    border-radius: 50%;
+    z-index: 1000;
+    position: absolute;
+    width: 15%;
+    box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+}
+
+
+.attrSelected{
+    border-radius: 50%;
+    z-index: 1000;
+    box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .9);
+}
+
+.logSession{
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.mainFight{
+    display: none;
+}
+
+
+.startbtn__{
+    display: none;
+}
+
+.startButton {
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	position: relative;
+	width: 120px;
+	margin: auto;
+	padding: 1rem 4rem;
+	font-weight: bold;
+	color: #8bb8d2;
+	background: #8a3030;
+	transition: 0.3s ease-in-out;
+}
+.startButton::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  border: 2px solid #b11010;
+  transition: 0.2s;
+}
+.startButton:hover {
+	background: #b11010;
+	color: #fff;
+    cursor: pointer;
+}
+.startButton:hover::before {
+  top: 0;
+  left: 0;
+}
+
+.current_pattern_viewer{
+    border-bottom: solid 8px black;
+    height: 25%;
+}
+
+.space_combine{
+    height: 73%;
+}
+
+.undertale_damager{
+    font-family: "undertale";
+    background-color: rgb(255, 145, 0);
+}
+
+.current_player_count_{
+    margin-left: 10px;
+}

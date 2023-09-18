@@ -1,0 +1,52 @@
+#main{
+    display: none;
+}
+
+#notCustomer{
+    display: none;
+}
+
+#badRequest{
+    display: none;
+}
+
+body{
+    background-color: antiquewhite;
+}
+
+#topTitle{
+    font-family: "ＭＳ Ｐゴシック", sans-serif;
+    font-size: 220%;
+    font-weight: bold;
+    display: inline;
+    padding-left: 100px;
+}
+
+#check{
+    font-family: "ＭＳ Ｐゴシック", sans-serif;
+    border: solid 20px rgba(0, 73, 10, 0.281);
+    background-color: rgb(255, 255, 255);
+    padding: 20px 10px 20px 0px;
+}
+
+.inline{
+    display: inline;
+}
+
+.topcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .topsquare {
+    width: 1000px;
+    height: 120px;
+    background-color: rgb(255, 255, 255);
+}
+
+.longUnderLine{
+    background-color: green;
+    width: 980px;
+    height: 20px;
+}
